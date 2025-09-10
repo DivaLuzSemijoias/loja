@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
 
-    <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
-    <link rel="shortcut icon" href="favicon-32x32.ico" type="image/x-icon">  
+    <link rel="icon" type="image/x-icon" href="favicon_128x128.ico">
+    <link rel="shortcut icon" href="favicon_128x128.ico" type="image/x-icon"> 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,10 +90,71 @@
             cursor: pointer;
         }
         
+        /* Estilos para a galeria do modal */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none; /* impede que o texto seja selecionado */
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: #9F7C38; /* Cor dourada do seu site */
+        }
+
         .close:hover {
             color: #9F7C38;
         }
+
+                /* Estilos para as setas na vitrine de produtos */
+        .card-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0; /* Começa invisível */
+            z-index: 10;
+        }
+
+        /* Mostra as setas quando o mouse está sobre o 'group' (o container da imagem) */
+        .group:hover .card-arrow {
+            opacity: 1;
+        }
+
+        .card-arrow:hover {
+            background-color: #9F7C38; /* Cor dourada do seu site */
+        }
+
+        /* Posiciona as setas na esquerda e direita */
+        .left-0 {
+            left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .right-0 {
+            right: 0;
+            border-radius: 4px 0 0 4px;
+        }
+        
     </style>
+
 </head>
 <body class="bg-[#EFE7DC]">
     <!-- WhatsApp Float -->
@@ -168,283 +229,698 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
             </div>
             
             <!-- Grid de Produtos - 4 colunas -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-TRIO-PONTO-DE-LUZ-QUADRADO-FOL.-AU-129-5990.avif"
+                             alt="BR Trio Ponto de Luz Quadrado" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-TRIO-PONTO-DE-LUZ-QUADRADO-FOL.-AU-129-5990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Ponto de Luz Quadrado Cód: 129</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 129." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-TRIO-LOVE-FOLHEADO-AU-130-8990.avif"
+                             alt="BR Trio Love" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-TRIO-LOVE-FOLHEADO-AU-130-8990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Love Cód: 130</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 130." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990-2.avif"
+                             alt="BR LACO PEROLA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990-2.avif,brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Laço Pérola Cód: 123</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 99,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 123." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-GOTA-FOLHEADO-AU-124-9990-2.avif"
+                             alt="BR-GOTA-FOLHEADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-GOTA-FOLHEADO-AU-124-9990-2.avif,brinco/BR-GOTA-FOLHEADO-AU-124-9990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Gota Folheado Cód: 124</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 99,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 124." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990-2.avif"
+                             alt="BR DUETO GLAMOUR CRAVEJADA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990-2.avif,brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Dueto Glamour Cravejado Cód: 126</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 109,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 126." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-TRANÇADO-CRAV.-FOL.-AU-1281-3990-2.avif"
+                             alt="BR ARGOLA TRANÇADO CRAV. FOL. AU" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-TRANÇADO-CRAV.-FOL.-AU-1281-3990-2.avif,brinco/BR-ARGOLA-TRANÇADO-CRAV.-FOL.-AU-1281-3990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Trançado Cravejado Cód: 128-1</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 39,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 128-1." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-TRANÇADO-FOL.-AU-1282-3990-2.avif"
+                             alt="BR ARGOLA TRANÇADO FOL. AU" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-TRANÇADO-FOL.-AU-1282-3990-2.avif,brinco/BR-ARGOLA-TRANÇADO-FOL.-AU-1282-3990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Trançado Folheado Cód: 128-2</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 39,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 128-2." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-TRANÇADO-TRAB.-FOL.-AU-1283-3990-2.avif"
+                             alt="BR-ARGOLA-TRANÇADO-TRAB.-FOL.-AU-1283-3990" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-TRANÇADO-TRAB.-FOL.-AU-1283-3990-2.avif,brinco/BR-ARGOLA-TRANÇADO-TRAB.-FOL.-AU-1283-3990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Trançado Trabalhado Cód: 128-3</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 39,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 128-3." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990-2.avif"
+                             alt="BR ARGOLA MALU DOURADO ACO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990-2.avif,brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Malu Dourado Aço Cód: 119</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 119." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-LUNA-DOURADO-ACO-118-2990-2.avif"
+                             alt="BR ARGOLA LUNA DOURADO ACO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-LUNA-DOURADO-ACO-118-2990-2.avif,brinco/BR-ARGOLA-LUNA-DOURADO-ACO-118-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Luna Dourado Aço Cód: 118</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 118." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-LISO-MEDIO-FOL-AU-139-6290-2.avif"
+                             alt="BR-ARGOLA-LISO-MEDIO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-LISO-MEDIO-FOL-AU-139-6290-2.avif,brinco/BR-ARGOLA-LISO-MEDIO-FOL-AU-139-6290.avif,brinco/BR-ARGOLA-LISO-MEDIO-FOL-AU-139-6290-3.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Liso Médio Cód: 139</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 62,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 139." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-CRAVEJADO-QUADRADO-FOL-AU-127-13990-2.avif"
+                             alt="BR ARGOLA CRAVEJAD QUADRADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-CRAVEJADO-QUADRADO-FOL-AU-127-13990-2.avif,brinco/BR-ARGOLA-CRAVEJADO-QUADRADO-FOL-AU-127-13990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejado Quadrado Cód: 127</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 139,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 127." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                
                 <!-- Brinco 1 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/BR Trio Coração Cravejado 011-0499.jpg" alt="BR Trio Coração Cravejado 011-0499" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-TRIO-CORAÇÃO-CRAVEJADO-11-9980.avif"
+                             alt="Trio Coração Cravejado 011-0499" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-TRIO-CORAÇÃO-CRAVEJADO-11-9980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">BR Trio Coração Cravejado 011-0499</h3><br>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 99,80</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:011-0499." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Trio Coração Cravejado Cód:11</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 99,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:11." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
-                    
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 2 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Vazado Orgânico 012-0149.jpg" alt="Brinco Coração Vazado Orgânico 012-0149" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO VAZADO ORGÂNICO 12 3980.avif"
+                             alt="BR CORAÇÃO VAZADO ORGÂNICO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO VAZADO ORGÂNICO 12 3980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Vazado Orgânico 012-0149</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 39,80</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:012-0149." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Vazado Orgânico Cód:12</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 39,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:12." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 3 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Folheado a Ouro Coração 043-0050.jpg" alt="Brinco Folheado a Ouro Coração 043-0050" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO CORAÇÃO 43 1990.avif"
+                             alt="BR FOLHEADO A OURO CORAÇÃO 43 1990" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO CORAÇÃO 43 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Coração 043-0050</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:043-0050." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Coração Cód:43</h3> 
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:43." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
 
                 <!-- Brinco 4 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Folheado a Ouro Coração 045-0060.jpg" alt="Brinco Folheado a Ouro Coração 045-0060" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO CORAÇÃO 45 1990.avif"
+                             alt="BR FOLHEADO A OURO CORAÇÃO 45 1990" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO CORAÇÃO 45 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Coração 045-0060</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:045-0060." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Coração Cód:45</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:45." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 5 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Folheado a Ouro Flor 044-0060.jpg" alt="Brinco Folheado a Ouro Flor 044-0060" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FLOR 44 1990.avif"
+                             alt="BR FOLHEADO A OURO FLOR 44" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FLOR 44 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Flor 044-0060</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:044-0060." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro fLOR Cód:44</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:44." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 6 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Folheado a Ouro Fotocorrosão 047-0100.jpg" alt="Brinco Folheado a Ouro Fotocorrosão 047-0100" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FOTOCORROSÃO CARACOL 47 2490.avif"
+                             alt="BR FOLHEADO A OURO FOTOCORROSÃO CARACOL 47" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FOTOCORROSÃO CARACOL 47 2490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Fotocorrosão 047-0100</h3>
-    			        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Fotocorrosão Caracol Cód:47</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 24,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:047-0100." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:47." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				    <i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 7 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Orgânico 009-0369.jpg" alt="Brinco Orgânico 009-0369" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR ORGÂNICO 9 7980.avif"
+                             alt="BR ORGÂNICO 9" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR ORGÂNICO 9 7980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Orgânico 009-0369</h3><br>
-    			        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Orgânico Cód:9</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 79,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:009-0369." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:9." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				    <i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
-
+                
                 <!-- Brinco 8 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Folheado a Ouro Flor 046-0070.jpg" alt="Brinco Folheado a Ouro Flor 046-0070" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FLOR 46 1990.avif"
+                             alt="BR FOLHEADO A OURO FLOR 46" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FLOR 46 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Flor 046-0070</h3>
-    			        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado a Ouro Flor Cód:46</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:046-0070." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:46." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				    <i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
-
+                
                 <!-- Brinco 9 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Cartela Folheada a Ouro 049-0070.jpg" alt="Cartela Folheada a Ouro 049-0070" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CARTELA FOLHEADO A OURO 49 1990.avif"
+                             alt="BR CARTELA FOLHEADO A OURO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CARTELA FOLHEADO A OURO 49 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela Folheada a Ouro 049-0070</h3><br>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:049-0070." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela de Brinco folheado Cód:49</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:49." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 10 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Cartela Folheada a Ouro Coração 048-0070.jpg" alt="Cartela Folheada a Ouro Coração 048-0070" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO 48 1990.avif"
+                             alt="BR CARTELA FOLHEADO A OURO CORAÇÃO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO 48 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela Folheada a Ouro Coração 048-0070</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:048-0070." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela de Brinco folheado Coração Cód:48</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:48." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-
+                
                 <!-- Brinco 11 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Cartela Folheada a Ouro Coração Flor 050-0070.jpg" alt="Cartela Folheada a Ouro Coração Flor 050-0070" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR 50 1990.avif"
+                             alt="BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR 50 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela Folheada a Ouro Coração Flor 050-0070</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 19,90</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:050-0070." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela de Brinco folheado Coração Flor Cód:50</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:50." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
 
                 <!-- Brinco 12 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Orgânico Chapa Médio Gota 014-0249.jpg" alt="Brinco Orgânico Chapa Médio Gota 014-0249" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR ORGÂNICO CHAPA MÉDIO GOTA 14 5480.avif"
+                             alt="BR ORGÂNICO CHAPA MÉDIO GOTA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR ORGÂNICO CHAPA MÉDIO GOTA 14 5480.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			<h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Orgânico Chapa Médio Gota 014-0249</h3>
-    			<p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			<div class="flex justify-between items-center"><br>
-        			<span class="font-bold text-[#9F7C38]">R$ 54,80</span>
-                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:014-0249." target="_blank" title="Fale conosco pelo WhatsApp">
-            			<button class="text-[#9F7C38] hover:text-amber-800">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Orgânico Chapa Médio Gota Cód:14</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 54,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:14." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
-            			</button>
-       				 </a>
-    			</div>
-		</div>
-
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
 
                 <!-- Brinco 13 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Trio Ponto de Luz Redondo 008-0229.jpg" alt="Brinco Trio Ponto de Luz Redondo 008-0229" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR TRIO PONTO DE LUZ REDONDO 8 4880.avif"
+                             alt="BR TRIO PONTO DE LUZ REDONDO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR TRIO PONTO DE LUZ REDONDO 8 4880.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Ponto de Luz Redondo 008-0229</h3>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Ponto de Luz Redondo Cód:8</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 48,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:008-0229." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:8." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -452,42 +928,55 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
     			        </div>
 		            </div>
                 </div>
-
+                
                 <!-- Brinco 14 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Estrela do Mar Folheada a Prata 051-0000.jpg" alt="Brinco Estrela do Mar Folheada a Prata 051-0000" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925 - 30 milésimos</div>    
-                    </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Estrela do Mar Folheada a Prata 051-0000</h3>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:051-0000." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-
-                </div>
-
-                <!-- Brinco 15 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Entrelaçado 010-0269.jpg" alt="Brinco Coração Entrelaçado 010-0269" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO ENTRELAÇADO 10 5380.avif"
+                             alt="BR CORAÇÃO ENTRELAÇADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO ENTRELAÇADO 10 5380.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Entrelaçado 010-0269</h3>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Entrelaçado Cód:10</h3> <br>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 53,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:010-0269." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:10." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Brinco 15 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-3-LINHAS-26-5980.avif"
+                             alt="BR-ARGOLA-3-LINHAS" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-3-LINHAS-26-5980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola 3 Linhas Cód:26</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:26." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -497,18 +986,25 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
                 </div>
 
                 <!-- Brinco 16 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola 3 Linhas 026-0299.jpg" alt="Brinco Argola 3 Linhas 026-0299" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR TRIO LISO COM X 24 10980.avif"
+                             alt="BR TRIO LISO COM X" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR TRIO LISO COM X 24 10980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola 3 Linhas 026-0299</h3><br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Liso  Com X Cód:24</h3> <br>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:026-0299." target="_blank" title="Fale conosco pelo WhatsApp">
+        			        <span class="font-bold text-[#9F7C38]">R$ 109,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:24." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -518,18 +1014,25 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
                 </div>
 
                 <!-- Brinco 17 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Trio Liso com X 024-0549.jpg" alt="Brinco Trio Liso Com X 024-0549" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR PÉROLA GRANDE COM ZIRCÔNIA BANHO OURO 98 7490.avif"
+                             alt="BR PÉROLA GRANDE COM ZIRCÔNIA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR PÉROLA GRANDE COM ZIRCÔNIA BANHO OURO 98 7490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Liso Com X 024-0549</h3><br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Grande com Zircônia Cód:98</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 109,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:024-0549." target="_blank" title="Fale conosco pelo WhatsApp">
+        			        <span class="font-bold text-[#9F7C38]">R$ 74,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:98." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -539,81 +1042,109 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
                 </div>
 
                 <!-- Brinco 18 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Pérola Grande com Zircônia 098-0306.jpg" alt="Brinco Pérola Grande com Zircônia 098-0306" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO GOTA TRABALHADO 66 2500.avif"
+                             alt="BR FOLHEADO A OURO GOTA TRABALHADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO GOTA TRABALHADO 66 2500.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Grande com Zircônia 098-0306</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 74,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:098-0306." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado Gota Trabalhado Cód:66</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 25,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:66." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 19 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Gota Trab. 066-0070.jpg" alt="Brinco Gota Trab. 066-0070" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 4 milésimos</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FOTOCORROSÃO CORAÇÃO 67 2900.avif"
+                             alt="BR FOLHEADO A OURO FOTOCORROSÃO CORAÇÃO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FOTOCORROSÃO CORAÇÃO 67 2900.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Gota Trab. 066-0070</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 25,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:066-0070." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado Fotocorrosão Coração Cód:67</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:67." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 20 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Fotocorrosão Coração 067-0100.jpg" alt="Brinco Fotocorrosão Coração 067-0100" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FOTOCORROSÃO 68 2900.avif"
+                             alt="BR FOLHEADO A OURO FOTOCORROSÃO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FOTOCORROSÃO 68 2900.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Fotocorrosão Coração 067-0100</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado Fotocorrosão Cód: 68</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 29,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:067-0100." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 68." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 21 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Fotocorrosão 068-0100.jpg" alt="Brinco Fotocorrosão 068-0100" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR ESTRELA CHAPA 78 1000.avif"
+                             alt="BR ESTRELA CHAPA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR ESTRELA CHAPA 78 1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Fotocorrosão 068-0100</h3><br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Estrela Chapa Cód: 78</h3> <br>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 29,00</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:068-0100." target="_blank" title="Fale conosco pelo WhatsApp">
+        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 78." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -623,426 +1154,565 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
                 </div>
 
                 <!-- Brinco 22 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Estrela Chapa Banho 078-0018.jpg" alt="Brinco Estrela Chapa Banho 078-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-CRAVEJADA-PEQUENO-96-3-5980.avif"
+                             alt="BR-ARGOLA-CRAVEJADA-PEQUENO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-CRAVEJADA-PEQUENO-96-3-5980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Estrela Chapa Banho 078-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:078-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejada Pequeno Cód: 96-3</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 96-3." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 23 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola Cravejada Peq. 096-0326-3.jpg" alt="Brinco Argola Cravejada Peq. 096-0326-3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-CRAVEJADA-MÉDIO-96-2-7490.avif"
+                             alt="BR-ARGOLA-CRAVEJADA-MEDIO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-CRAVEJADA-MÉDIO-96-2-7490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejada Peq. 096-0326-3</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:096-0326-3." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejada Médio Cód: 96-2</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 74,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 96-2." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 24 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola Cravejada Médio 096-0326-2.jpg" alt="Brinco Argola Cravejada Médio 096-0326-2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-CRAVEJADA-GRANDE-96-1-8990.avif"
+                             alt="BR-ARGOLA-CRAVEJADA-GRANDE" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-CRAVEJADA-GRANDE-96-1-8990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejada Médio. 096-0326-2</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 74,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:096-0326-2." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Cravejada Grande Cód: 96-1</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 96-1." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 25 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola Cravejada Grande 096-0326-1.jpg" alt="brinco/Brinco Argola Cravejada Grande 096-0326-1.jpg" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR STRASS GRANDE FOLHEADO 81 1200.avif"
+                             alt="BR STRASS GRANDE FOLHEADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR STRASS GRANDE FOLHEADO 81 1200.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">brinco/Brinco Argola Cravejada Grande 096-0326-1</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:096-0326-1." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Strass Grande Folheado Cód: 81</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 81." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 26 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Strass Grande Folheado Ouro 081-0018.jpg" alt="Brinco Strass Grande Folheado Ouro 081-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-LISO-MEDIO-BANHO-OURO-111-3-2990.avif"
+                             alt="BR-ARGOLA-LISO-MEDIO-BANHO-OURO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-LISO-MEDIO-BANHO-OURO-111-3-2990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Strass Grande Folheado Ouro 081-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:081-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Lisa Médio Cód: 111-3</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 111-3." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 27 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola Lisa Médio 106-0174-3.jpg" alt="Brinco Argola Lisa Médio 106-0174-3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-BOLINHA-PEQ.-FOLHEADO-76-1000.avif"
+                             alt="BR-BOLINHA-PEQ.-FOLHEADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-BOLINHA-PEQ.-FOLHEADO-76-1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Lisa Médio 106-0174-3</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:096-0326-3." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Bolinha Pequena Cód: 76</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 76." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 28 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Bolinha Peq. Folheado 076-0018.jpg" alt="Brinco Bolinha Peq. Folheado 076-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO ABAULADO 80 1200.avif"
+                             alt="BR CORAÇÃO ABAULADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-BOLINHA-PEQ.-FOLHEADO-76-1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Bolinha Peq. Folheado 076-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:076-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Abaulado Cód: 80</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 80." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 29 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Abaulado 080-0018.jpg" alt="Brinco Coração Abaulado 080-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO PEQ. CHAPA 70 1000.avif"
+                             alt="BR CORAÇÃO PEQUENO CHAPA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO PEQ. CHAPA 70 1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Abaulado 080-0018</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:080-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Pequeno Chapa Cód: 70</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 70." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 30 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Peq. Chapa 070-0018.jpg" alt="Brinco Coração Peq. Chapa 070-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO MED. VAZADO 79 1200.avif"
+                             alt="BR CORAÇÃO MEDIO VAZADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO MED. VAZADO 79 1200.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Peq. Chapa 070-0018</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:070-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Médio Vazado Cód: 79</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 79." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 31 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Médio Vazado 079-0018.jpg" alt="Brinco Coração Médio Vazado 079-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO PEQ. VAZADO 71 1000.avif"
+                             alt="BR CORAÇÃO PEQUENO VAZADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO PEQ. VAZADO 71 1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Médio Vazado 079-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:079-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Pequeno Vazado Cód: 71</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 71." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 32 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Pqueno Vazado 071-0018.jpg" alt="Brinco Coração Pqueno Vazado 071-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CORAÇÃO VAZADO TRABALHADO 77 1200.avif"
+                             alt="BR CORAÇÃO VAZADO TRABALHADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CORAÇÃO VAZADO TRABALHADO 77 1200.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Pqueno Vazado 071-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:071-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Vazado Trabalhado Cód: 77</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 77." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 33 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Vazado Trabalhado 077-0018.jpg" alt="Brinco Coração Vazado Trabalhado 077-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR PÉROLA PEQ. FOLHEADO 73 1000.avif"
+                             alt="BR PEROLA PEQUENO FOLHEADO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR PÉROLA PEQ. FOLHEADO 73 1000.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Vazado Trabalhado 077-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 12,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:077-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Pequeno Folheado Cód: 73</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 73." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 34 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Pérola Pequena Folheado 073-0018.jpg" alt="Brinco Pérola Pequena Folheado 073-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO CHAPA QUADRADO GRANDE 82 2700.avif"
+                             alt="BR FOLHEADO A OURO CHAPA QUADRADO GRANDE" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO CHAPA QUADRADO GRANDE 82 2700.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Pequena Folheado 073-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:073-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado Chapa Quadrado Grande Cód: 82</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 27,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 82." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 35 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Chapa Quadrado Grande 082-0090.jpg" alt="Brinco Chapa Quadrado Grande 082-0090" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-3-LINHAS-26-5980.avif"
+                             alt="BR ARGOLA 3 LINHAS" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-3-LINHAS-26-5980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Chapa Quadrado Grande 082-0090</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 27,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:082-0090." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola 3 Linhas Cód: 26</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 26." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 36 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Argola 3 Linhas 026-0299.jpg" alt="Brinco Argola 3 Linhas 026-0299" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CRAVEJADO GRANDE BANHO OURO 111-1 5990.avif"
+                             alt="BR CRAVEJADO GRANDE BANHO OURO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CRAVEJADO GRANDE BANHO OURO 111-1 5990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola 3 Linhas 026-0299</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 59,80</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:026-0299." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Cravejado Grande Cód: 111-1</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 111-1." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 37 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Cravejado Grande 106-0174.jpg" alt="Brinco Cravejado Grande 106-0174" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR TRIO LISO COM X 24 10980.avif"
+                             alt="BR TRIO LISO COM X" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR TRIO LISO COM X 24 10980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Cravejado Grande 106-0174</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:106-0174." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Liso Com X Cód: 24</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 109,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 24." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 38 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Trio Liso com X 024-0549.jpg" alt="Brinco Trio Liso com X 024-0549" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Trio Liso com X 024-0549</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 109,80</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:024-0549." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20brincos%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 39 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20brincos%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
                 <!-- Brinco 40 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20brincos%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
                      
                     <!-- Sem Ítem 
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo\divaluzlogo.jpg" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20brincos%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div> -->
-
-                </div>
+                
             </div>
         </div>
     </section>
@@ -1050,109 +1720,207 @@ url('./brinco/brincoshero.png'); background-size: contain; background-position: 
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
+
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
     </div>
 
-    <!-- Footer -->
+    <!-- Grupo VIP WhatsApp -->
+    <section class="py-16 bg-[#9F7C38] text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
+            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+        
+            <div class="mt-8">
+                <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
+                <a href="https://chat.whatsapp.com/HVG83Q7Rh4tFDZ8wo5LDLN?mode=ems_copy_t" target="_blank" class="inline-flex items-center justify-center bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    Entrar no Grupo Agora
+                </a>
+            </div>
+        </div>
+    </section>   
+
+    <!-- Footer ATUALIZADO -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Sobre a Loja -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3">
-                        <h3 class="title-font text-xl font-bold"></h3>
+                        <img src="logo/nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3 rounded">
                     </div>
-                    <p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
-                    <br>
-                    <p class="text-gray-400">Nos siga nas redes socias.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
+                        <br><p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
                 </div>
                 
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
-                        <li><a href="colares.html" class="text-gray-400 hover:text-[#9F7C38] transition">Colares</a></li>
-                        <li><a href="brincos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Brincos</a></li>
-                        <li><a href="aneis.html" class="text-gray-400 hover:text-[#9F7C38] transition">Anéis</a></li>
-                        <li><a href="pulseiras.html" class="text-gray-400 hover:text-[#9F7C38] transition">Pulseiras</a></li>
-                        <li><a href="conjuntos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Conjuntos</a></li>
-                        <li><a href="informacoes.html" class="text-gray-400 hover:text-[#9F7C38] transition">Informações</a></li>
-                    </ul>
+                        <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
+                            <li><a href="colares.html" class="text-gray-400 hover:text-[#9F7C38] transition">Colares</a></li>
+                            <li><a href="brincos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Brincos</a></li>
+                            <li><a href="aneis.html" class="text-gray-400 hover:text-[#9F7C38] transition">Anéis</a></li>
+                            <li><a href="pulseiras.html" class="text-gray-400 hover:text-[#9F7C38] transition">Pulseiras</a></li>
+                            <li><a href="conjuntos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Conjuntos</a></li>
+                            <li><a href="informacoes.html" class="text-gray-400 hover:text-[#9F7C38] transition">Informações</a></li>
+                        </ul>    
+                </div>                      
+            
+                <!-- Acesso Cliente (Crediário) -->
+                <div>
+                <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Acesso Cliente</h4>                
+
+                    <p class="text-gray-400 text-xs">Consulte em início > Acesso Cliente.</p><br>
+
+                    <a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a>
+                                                      
                 </div>
                 
+                <!-- Formas de Pagamento -->
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Minha Conta</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Minha Conta</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Meus Pedidos</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Lista de Desejos</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Rastreamento</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Formas de Pagamento</h4>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-visa text-2xl"></i>
+                    <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Formas de Pagamento</h4>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-money-bill-wave text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Dinheiro</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fab fa-pix text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">PIX</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-amex text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-credit-card text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Cartões</p>
                         </div>
-                        
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-barcode text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-money-bill-wave text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <!-- <i class="fab fa-cc-paypal text-2xl"></i> -->
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-link text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Link</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-[#9F7C38]">
-                <p>&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
+            <div class="border-t border-[#9F7C38] mt-12 pt-8 text-center text-gray-500">
+                <p class="text-sm">&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    // Menu mobile toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
 
-              // Código adicionado para o modal
-        function openModal(imgElement) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-            modalImg.alt = imgElement.alt;
+    // --- CÓDIGO DA GALERIA DO MODAL (continua o mesmo) ---
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openModal(imgElement) {
+        const imagesAttr = imgElement.getAttribute('data-images');
+        currentImages = imagesAttr ? imagesAttr.split(',') : [imgElement.src];
+        currentIndex = 0;
+        modal.style.display = "block";
+        showImage(currentIndex);
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex >= currentImages.length) { currentIndex = 0; }
+        if (currentIndex < 0) { currentIndex = currentImages.length - 1; }
+        showImage(currentIndex);
+    }
+
+    function showImage(index) {
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        if (currentImages.length <= 1) {
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+        } else {
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
+        modalImg.src = currentImages[index].trim();
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // --- NOVA FUNÇÃO PARA A GALERIA DA VITRINE ---
+    /**
+     * Altera a imagem do produto diretamente no card da vitrine.
+     * @param {Event} event - O objeto do evento de clique.
+     * @param {number} direction - A direção da navegação (-1 para anterior, 1 para próxima).
+     */
+    function changeProductImage(event, direction) {
+        // Impede que o clique na seta abra também o modal. Muito importante!
+        event.stopPropagation();
+
+        // Encontra a imagem que pertence à seta que foi clicada
+        const arrow = event.target;
+        const imageContainer = arrow.closest('.relative');
+        const imgElement = imageContainer.querySelector('img');
+
+        // Pega a lista de imagens do atributo data-images
+        const imagesAttr = imgElement.getAttribute('data-images');
+        const images = imagesAttr ? imagesAttr.split(',') : [];
+
+        // Se não houver mais de uma imagem, não faz nada
+        if (images.length <= 1) return;
+
+        // Pega o índice atual, converte para número e calcula o próximo
+        let currentIndex = parseInt(imgElement.getAttribute('data-current-index'), 10);
+        currentIndex += direction;
+
+        // Lógica para dar a volta na lista de imagens
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
         }
 
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
+        // Atualiza o 'src' da imagem com a nova foto
+        imgElement.src = images[currentIndex].trim();
+        
+        // Guarda o novo índice no atributo para o próximo clique
+        imgElement.setAttribute('data-current-index', currentIndex);
+    }
+    document.querySelectorAll(".status-badge").forEach(badge => {
+    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+      badge.parentElement.querySelector("img").style.opacity = "0.5"; // escurece a imagem
+      badge.parentElement.querySelector("img").style.filter = "grayscale(50%)"; // opcional
+      badge.classList.remove("bg-yellow-600"); // tira cor antiga
+      badge.classList.add("bg-red-600"); // coloca vermelho
+    }
+    });
+    
+    document.querySelectorAll(".status-badge").forEach(badge => {
+    let card = badge.closest(".card");
+    let grid = document.getElementById("produtos");
 
-        // Fechar modal ao clicar fora da imagem
-        window.onclick = function(event) {
-            const modal = document.getElementById("imageModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+      let img = card.querySelector("img");
+      img.style.opacity = "0.5";
+      img.style.filter = "grayscale(50%)";
+
+      badge.classList.remove("bg-yellow-600", "bg-green-600");
+      badge.classList.add("bg-red-600");
+
+      grid.appendChild(card);
+    }
+    });
+
     </script>
 </body>
 </html>
