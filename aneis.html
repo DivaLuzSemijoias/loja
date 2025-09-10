@@ -2,12 +2,12 @@
 <html lang="pt-BR">
 <head>
 
-    <link rel="icon" type="image/x-icon" href="favicon_new32.ico">
-    <link rel="shortcut icon" href="favicon_new32.ico" type="image/x-icon">  
+    <link rel="icon" type="image/x-icon" href="favicon_128x128.ico">
+    <link rel="shortcut icon" href="favicon_128x128.ico" type="image/x-icon">   
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DivaLuz Semijoias - Coleção de Colares</title>
+    <title>DivaLuz Semijoias - Coleção de Anéis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -90,10 +90,71 @@
             cursor: pointer;
         }
         
+        /* Estilos para a galeria do modal */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none; /* impede que o texto seja selecionado */
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: #9F7C38; /* Cor dourada do seu site */
+        }
+
         .close:hover {
             color: #9F7C38;
         }
+
+                /* Estilos para as setas na vitrine de produtos */
+        .card-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0; /* Começa invisível */
+            z-index: 10;
+        }
+
+        /* Mostra as setas quando o mouse está sobre o 'group' (o container da imagem) */
+        .group:hover .card-arrow {
+            opacity: 1;
+        }
+
+        .card-arrow:hover {
+            background-color: #9F7C38; /* Cor dourada do seu site */
+        }
+
+        /* Posiciona as setas na esquerda e direita */
+        .left-0 {
+            left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .right-0 {
+            right: 0;
+            border-radius: 4px 0 0 4px;
+        }
+        
     </style>
+    
 </head>
 <body class="bg-[#EFE7DC]">
     <!-- WhatsApp Float -->
@@ -167,17 +228,52 @@
             </div>
             
             <!-- Grid de Produtos - 4 colunas -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">                
+
+                <!-- Anel -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990-2.avif"
+                             alt="Anel La Vie Gold Nº18 Cód:120" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990-2.avif,aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel La Vie Gold Nº18 Cód:120</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:120." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
 
                 <!-- Anel 1 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneis/Anél Bola com Zircônia 013-0490.jpg" alt="Anél Bola com Zircônia 013-0490" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-BOLA-COM-ZIRCONIA-BANHO-AU-13-9980.avif"
+                             alt="Anel Bola com Zirconia 013-0490" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-BOLA-COM-ZIRCONIA-BANHO-AU-13-9980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anél Bola com Zircônia 013-0490</h3> <br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Bola com Zircônia Regulável Cód. 13</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 99,80</span>
@@ -189,20 +285,26 @@
     			        </div>
 		            </div>
                 </div>
-
                 <!-- anel 2 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneis/Anél Coração e Folha Cravejada 016-0369.jpg" alt="Anél Coração e Folha Cravejada 016-0369" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-CORACAO-E-FOLHA-CRAVEJADA-16-7480.avif"
+                             alt="Anél Coração e Folha Cravejada Cód. 16" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-CORACAO-E-FOLHA-CRAVEJADA-16-7480.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anél Coração e Folha Cravejada 016-0369</h3>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Coração e Folha Cravejada Regulável Cód. 16</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 74,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:016-0369." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:16." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -212,18 +314,25 @@
                 </div>
 
                 <!-- Anel 3 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneis/Anél Gota Liso 015-0549.jpg" alt="Anél Gota Liso 015-0549" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-GOTA-LISO-15-10980.avif"
+                             alt="ANEL-GOTA-LISO-15-10980" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-GOTA-LISO-15-10980.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anél Gota Liso 015-0549</h3> <br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Gota Liso Folheado Regulável Cód. 15</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 109,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:015-0549." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:15." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -231,20 +340,27 @@
     			        </div>
 		            </div>
                 </div>
-
+                
                 <!-- Anel 4 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneis/Anel Gota com Zircônia Nº 17 108-0408.jpg" alt="Anel Gota com Zircônia Nº 17 108-0408" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-GOTA-COM-ZIRCONIA-N17-BANHO-AU-108-8990.avif"
+                             alt="Anel Gota com Zircônia N17 Banho AU 108" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-GOTA-COM-ZIRCONIA-N17-BANHO-AU-108-8990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Gota com Zircônia Nº 17 108-0408</h3>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Gota com Zircônia Nº17 Cód.108</h3> <br>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:108-0408." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:108." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -254,18 +370,53 @@
                 </div>
 
                 <!-- Anel 5 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneis/Anel Croissant Nº18 109-0576.jpg" alt="Anel Croissant Nº18 109-0576" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-CROISSANT-N18-BANHO-AU-109-11490.avif"
+                             alt="Anel Croissant Nº18 Banho AU Cód. 109" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-CROISSANT-N18-BANHO-AU-109-11490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Croissant Nº18 109-0576</h3>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Croissant Nº18 Cód. 109</h3> <br>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
         			        <span class="font-bold text-[#9F7C38]">R$ 114,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:015-0549." target="_blank" title="Fale conosco pelo WhatsApp">
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:109." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                                
+                <!-- Anel 6 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você Brilhar</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20anéis%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -274,92 +425,62 @@
 		            </div>
                 </div>
 
-                <!-- anel 6 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
-                    </div>
-                    <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				        </a>
-    			        </div>
-		            </div>
-                </div>
-
                 <!-- Anel 7 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você Brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20anéis%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
 
-                <!-- Anel 8 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
+                <!-- Anel -->
+                <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="logo/em breve.png"
+                             alt="Em Breve" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">EM BREVE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você Brilhar</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">Nos Chame no WhatsApp</span>
+                            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20anéis%20novos!%20me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
-                </div>
-
-                <!-- SEM ÍTEM 
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="logo/em breve.png" alt="Em Breve" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Em Breve</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Fazendo você brilhar</div>    
-                    </div>
-                    <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Em Breve Novidades</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 00,00</span>
-				            <a href="https://wa.me/5548991463351?text=Estou%20de%20olho%20nos%20colares%20novos!%20Me%20avisa%20quando%20chegar%20novidades." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				        </a>
-    			        </div>
-		            </div>
-                </div>  -->
-
-
-                </div>
+                </div> -->              
+                
             </div>
         </div>
     </section>
@@ -367,114 +488,207 @@
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
+
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
     </div>
 
-    <!-- Footer -->
+    <!-- Grupo VIP WhatsApp -->
+    <section class="py-16 bg-[#9F7C38] text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
+            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+        
+            <div class="mt-8">
+                <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
+                <a href="https://chat.whatsapp.com/HVG83Q7Rh4tFDZ8wo5LDLN?mode=ems_copy_t" target="_blank" class="inline-flex items-center justify-center bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    Entrar no Grupo Agora
+                </a>
+            </div>
+        </div>
+    </section>   
+
+    <!-- Footer ATUALIZADO -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Sobre a Loja -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3">
-                        <h3 class="title-font text-xl font-bold"></h3>
+                        <img src="logo/nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3 rounded">
                     </div>
-                    <p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
-                    <br>
-                    <p class="text-gray-400">Nos siga nas redes socias.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
+                        <br><p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
                 </div>
                 
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
-                        <li><a href="colares.html" class="text-gray-400 hover:text-[#9F7C38] transition">Colares</a></li>
-                        <li><a href="brincos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Brincos</a></li>
-                        <li><a href="aneis.html" class="text-gray-400 hover:text-[#9F7C38] transition">Anéis</a></li>
-                        <li><a href="pulseiras.html" class="text-gray-400 hover:text-[#9F7C38] transition">Pulseiras</a></li>
-                        <li><a href="conjuntos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Conjuntos</a></li>
-                        <li><a href="informacoes.html" class="text-gray-400 hover:text-[#9F7C38] transition">Informações</a></li>
-                    </ul>
+                        <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
+                        <ul class="space-y-2">
+                            <li><a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
+                            <li><a href="colares.html" class="text-gray-400 hover:text-[#9F7C38] transition">Colares</a></li>
+                            <li><a href="brincos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Brincos</a></li>
+                            <li><a href="aneis.html" class="text-gray-400 hover:text-[#9F7C38] transition">Anéis</a></li>
+                            <li><a href="pulseiras.html" class="text-gray-400 hover:text-[#9F7C38] transition">Pulseiras</a></li>
+                            <li><a href="conjuntos.html" class="text-gray-400 hover:text-[#9F7C38] transition">Conjuntos</a></li>
+                            <li><a href="informacoes.html" class="text-gray-400 hover:text-[#9F7C38] transition">Informações</a></li>
+                        </ul>    
+                </div>                      
+            
+                <!-- Acesso Cliente (Crediário) -->
+                <div>
+                <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Acesso Cliente</h4>                
+
+                    <p class="text-gray-400 text-xs">Consulte em início > Acesso Cliente.</p><br>
+
+                    <a href="index.html" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a>
+                                                      
                 </div>
                 
+                <!-- Formas de Pagamento -->
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Minha Conta</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Minha Conta</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Meus Pedidos</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Lista de Desejos</a></li>
-                        <li><a href="https://wa.me/48991463351" class="text-gray-400 hover:text-[#9F7C38] transition">Rastreamento</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Formas de Pagamento</h4>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-visa text-2xl"></i>
+                    <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Formas de Pagamento</h4>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-money-bill-wave text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Dinheiro</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fab fa-pix text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">PIX</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-amex text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-credit-card text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Cartões</p>
                         </div>
-                        
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-barcode text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-money-bill-wave text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <!-- <i class="fab fa-cc-paypal text-2xl"></i> -->
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-link text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Link</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-[#9F7C38]">
-                <p>&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
+            <div class="border-t border-[#9F7C38] mt-12 pt-8 text-center text-gray-500">
+                <p class="text-sm">&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Menu mobile toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    // Menu mobile toggle
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
 
-        // Menu mobile toggle (existente)
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    // --- CÓDIGO DA GALERIA DO MODAL (continua o mesmo) ---
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    let currentImages = [];
+    let currentIndex = 0;
 
-        // Código adicionado para o modal
-        function openModal(imgElement) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-            modalImg.alt = imgElement.alt;
+    function openModal(imgElement) {
+        const imagesAttr = imgElement.getAttribute('data-images');
+        currentImages = imagesAttr ? imagesAttr.split(',') : [imgElement.src];
+        currentIndex = 0;
+        modal.style.display = "block";
+        showImage(currentIndex);
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex >= currentImages.length) { currentIndex = 0; }
+        if (currentIndex < 0) { currentIndex = currentImages.length - 1; }
+        showImage(currentIndex);
+    }
+
+    function showImage(index) {
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        if (currentImages.length <= 1) {
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+        } else {
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        }
+        modalImg.src = currentImages[index].trim();
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // --- NOVA FUNÇÃO PARA A GALERIA DA VITRINE ---
+    /**
+     * Altera a imagem do produto diretamente no card da vitrine.
+     * @param {Event} event - O objeto do evento de clique.
+     * @param {number} direction - A direção da navegação (-1 para anterior, 1 para próxima).
+     */
+    function changeProductImage(event, direction) {
+        // Impede que o clique na seta abra também o modal. Muito importante!
+        event.stopPropagation();
+
+        // Encontra a imagem que pertence à seta que foi clicada
+        const arrow = event.target;
+        const imageContainer = arrow.closest('.relative');
+        const imgElement = imageContainer.querySelector('img');
+
+        // Pega a lista de imagens do atributo data-images
+        const imagesAttr = imgElement.getAttribute('data-images');
+        const images = imagesAttr ? imagesAttr.split(',') : [];
+
+        // Se não houver mais de uma imagem, não faz nada
+        if (images.length <= 1) return;
+
+        // Pega o índice atual, converte para número e calcula o próximo
+        let currentIndex = parseInt(imgElement.getAttribute('data-current-index'), 10);
+        currentIndex += direction;
+
+        // Lógica para dar a volta na lista de imagens
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
         }
 
-        function closeModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
+        // Atualiza o 'src' da imagem com a nova foto
+        imgElement.src = images[currentIndex].trim();
+        
+        // Guarda o novo índice no atributo para o próximo clique
+        imgElement.setAttribute('data-current-index', currentIndex);
+    }
+    document.querySelectorAll(".status-badge").forEach(badge => {
+    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+      badge.parentElement.querySelector("img").style.opacity = "0.5"; // escurece a imagem
+      badge.parentElement.querySelector("img").style.filter = "grayscale(50%)"; // opcional
+      badge.classList.remove("bg-yellow-600"); // tira cor antiga
+      badge.classList.add("bg-red-600"); // coloca vermelho
+    }
+    });
+    
+    document.querySelectorAll(".status-badge").forEach(badge => {
+    let card = badge.closest(".card");
+    let grid = document.getElementById("produtos");
 
-        // Fechar modal ao clicar fora da imagem
-        window.onclick = function(event) {
-            const modal = document.getElementById("imageModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+      let img = card.querySelector("img");
+      img.style.opacity = "0.5";
+      img.style.filter = "grayscale(50%)";
+
+      badge.classList.remove("bg-yellow-600", "bg-green-600");
+      badge.classList.add("bg-red-600");
+
+      grid.appendChild(card);
+    }
+    });
+
     </script>
 </body>
 </html>
