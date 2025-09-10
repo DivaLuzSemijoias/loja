@@ -28,7 +28,9 @@
             background-size: cover;
             background-position: center;
         }
-        
+
+
+
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -55,7 +57,113 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* Estilos adicionados para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
         
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            animation: zoom 0.3s;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @keyframes zoom {
+            from {transform: scale(0.5) translateY(-100%);}
+            to {transform: scale(1) translateY(-50%);}
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        /* Estilos para a galeria do modal */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none; /* impede que o texto seja selecionado */
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: #9F7C38; /* Cor dourada do seu site */
+        }
+
+        .close:hover {
+            color: #9F7C38;
+        }
+
+                /* Estilos para as setas na vitrine de produtos */
+        .card-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0; /* Começa invisível */
+            z-index: 10;
+        }
+
+        /* Mostra as setas quando o mouse está sobre o 'group' (o container da imagem) */
+        .group:hover .card-arrow {
+            opacity: 1;
+        }
+
+        .card-arrow:hover {
+            background-color: #9F7C38; /* Cor dourada do seu site */
+        }
+
+        /* Posiciona as setas na esquerda e direita */
+        .left-0 {
+            left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .right-0 {
+            right: 0;
+            border-radius: 4px 0 0 4px;
+        }
+        
+      
+        
+       
         .custom-radio:checked + .custom-radio-label {
             border-color: #9F7C38;
             background-color: #F8F1E9;
@@ -65,6 +173,17 @@
         .hidden {
             display: none;
         }
+
+        .conteudo {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease;
+        }
+
+
+        /* html {
+    scroll-behavior: smooth;
+        } */        
             
                 
     </style>
@@ -92,6 +211,7 @@
    		        <a href="#produtos" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Produtos</a>
    		        <a href="#sobre" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Sobre</a>
       	        <a href="#contato" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Contato</a>
+                <a href="#footer" class="relative text-gray-700 hover:text-[#9F7C38] font-medium after:absolute after:bottom-[-3px] after:left-0 after:w-0 after:h-[2px] after:bg-[#9F7C38] after:transition-all after:duration-300 hover:after:w-full">Acesso Cliente</a>
             </nav>
 
      
@@ -118,10 +238,10 @@
             <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Descubra nossa coleção exclusiva de semijoias que combinam sofisticação e acessibilidade para realçar sua beleza única.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#produtos" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">Ver Coleção</a>
-                <a href="#contato" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">Encomendar</a>
+                <a href="#contato" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">Ver Contatos</a>
             </div>
         </div>
-    </section>
+    </section>    
 
     <!-- Destaques -->
     <section class="py-16 bg-[#EFE7DC]">  <!-- F3E5F5 - Rosa-->
@@ -152,13 +272,17 @@
         </div>
     </section>
 
+        <div class="container mx-auto px-4">          
+            <div class="border-t border-[#9F7C38] mt-12 pt-8 text-center text-gray-500"></div>
+        </div>
+    
     <!-- Produtos -->
     <section id="produtos" class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-4">Nossas Coleções</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Descubra peças que complementam seu estilo e elevam sua confiança, com a coleção de peças em banho de ouro 18k para um brilho intenso e a requintada coleção em prata 925 para um estilo atemporal.</p>
-            </div>
+            </div><br>
 
              <!-- Coleção de Banhos -->
             <div class="mb-16">
@@ -170,98 +294,122 @@
                     <input type="radio" id="todos" name="categoria" class="hidden custom-radio" checked>
                     <label for="destaques" class="bg-[#9F7C38] text-white px-4 py-2 rounded-full text-sm font-medium">Destaques</label>
                 </div>
-                <div class="flex items-center"><a href="colares.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Colares</a></div>
-                <div class="flex items-center"><a href="brincos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Brincos</a></div>
-                <div class="flex items-center"><a href="aneis.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Anéis</a></div>
-                <div class="flex items-center"><a href="pulseiras.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Pulseiras</a></div>
-                <div class="flex items-center"><a href="conjuntos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Conjuntos</a></div>
-                <div class="flex items-center"><a href="informacoes.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Informações</a></div>
+                <div class="flex items-center"><a href="colares.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Colares</a></div> <!--target="_blank"-->
+                <div class="flex items-center"><a href="brincos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition">Brincos</a></div>
+                <div class="flex items-center"><a href="aneis.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Anéis</a></div>
+                <div class="flex items-center"><a href="pulseiras.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Pulseiras</a></div>
+                <div class="flex items-center"><a href="conjuntos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Conjuntos</a></div>
+                <div class="flex items-center"><a href="informacoes.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Informações</a></div>
             </div>
             
-            <!-- Coleção de Banhos 
-            <div class="mb-16">
-                <h3 class="title-font text-2xl md:text-3xl font-bold text-[#9F7C38] mb-6 text-center">Coleção de Banhos</h3> -->
-                
-                <!-- Grid de Produtos - Visíveis inicialmente (4 primeiros produtos) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Produto 1 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="pulseiras/Pulseira Folheado a Ouro 039-0110.jpg" alt="Pulseira Folheado a Ouro 039-0110" class="w-full h-64 object-cover">
-                            <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
-                            <div class="top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Folheado a Ouro 039-0110</h3><br>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between  items-center">    <BR>
-                            <!-- <br><div class="flex justify-center  items-center">                              -->
-                                <span class="font-bold text-[#9F7C38]">R$ 32,90</span>
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:039-0110." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produto 2 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="colar/Colar Folheado a Ouro inspiração Virginia Perolado 027-0110.jpg" alt="Colar Folheado a Ouro inspiração Virginia Perolado 027-0110" class="w-full h-64 object-cover">
-                            <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Folheado a Ouro inspiração Virginia Perolado 027-0110</h3>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between  items-center">  <br>  
-                            <!-- <br><div class="flex justify-center  items-center"> -->
-                                <span class="font-bold text-[#9F7C38]">R$ 34,90</span> 
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:027-0110." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produto 3 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Pérola Grande com Zircônia 098-0306.jpg" alt="Brinco Pérola Grande com Zircônia 098-0306" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                            
+            <!-- Grid de Produtos - 4 colunas -->
+            <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"> 
+
+                <!-- Destaque 1 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990-2.avif"
+                             alt="Anel La Vie Gold Nº18 Cód:120" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990-2.avif,aneis/AN-LA-VIE-GOLD-N18-FOL-AU-120-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Grande com Zircônia 098-0306</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 74,90</span> 
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:098-0306." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel La Vie Gold Nº18 Cód:120</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:120." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Destaque 2 --> 
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990-2.avif"
+                             alt="BR ARGOLA MALU DOURADO ACO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990-2.avif,brinco/BR-ARGOLA-MALU-DOURADO-ACO-119-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Argola Malu Dourado Aço Cód: 119</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 119." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
                     
-                    <!-- Produto 4 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Fotocorrosão 068-0100.jpg" alt="Brinco Fotocorrosão 068-0100" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <!-- Destaque 3 --> 
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseiras/BRACELETE-CARTIER-DOURADO-ACO-116-5990-2.avif"
+                             alt="Bracelete Cartier Dourado Aço"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseiras/BRACELETE-CARTIER-DOURADO-ACO-116-5990-2.avif,pulseiras/BRACELETE-CARTIER-DOURADO-ACO-116-5990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Fotocorrosão 068-0100</h3> <br>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Bracelete Cartier Dourado Aço Cód: 116</h3>
     			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
     			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 29,00</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:068-0100." target="_blank" title="Fale conosco pelo WhatsApp">
+        			        <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 116." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                    
+                <!-- Destaque 4 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="colar/CHOKER-PEROLAS-FOL-AU-135-9990.avif"
+                             alt="CHOKER-PEROLAS-FOL-AU" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="colar/CHOKER-PEROLAS-FOL-AU-135-9990.avif,colar/CHOKER-PEROLAS-FOL-AU-135-9990-2.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Choker Pérola Folheado Cód: 135</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 99,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 135." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
                				 <i class="fas fa-shopping-cart"></i>
             			    </button>
@@ -274,120 +422,119 @@
                 <!-- Grid de Produtos - Ocultos inicialmente (8 produtos adicionais) -->
                 <div id="hidden-products-banhos" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
 
-                    <!-- Produto 5 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Cravejado Grande 106-0174.jpg" alt="Brinco Cravejado Grande 106-0174" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <!-- Destaque 5 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990-2.avif"
+                             alt="BR LACO PEROLA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990-2.avif,brinco/BR-LACO-PEROLA-FOLHEADO-AU-123-6990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Cravejado Grande 106-0174</h3><br>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"> <br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:106-0174." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Laço Pérola Cód: 123</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 99,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 123." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
                     
-                    <!-- Produto 6 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="brinco/Brinco Coração Pqueno Vazado 071-0018.jpg" alt="Brinco Coração Pqueno Vazado 071-0018" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k</div>    
+                <!-- Destaque 6 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="conjuntos/CONJUNTO-BORBOLETA-FOL.-AU-131-13990.avif"
+                             alt="CONJUNTO BORBOLETA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="conjuntos/CONJUNTO-BORBOLETA-FOL.-AU-131-13990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 A 10 milésimos</div>    
                     </div>
                     <div class="p-4">
-    			            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Coração Pqueno Vazado 071-0018</h3>
-    			            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			         <div class="flex justify-between items-center"> <br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 10,00</span>
-				            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:071-0018." target="_blank" title="Fale conosco pelo WhatsApp">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Conjunto Borboleta Folheado a Ouro Cód: 131</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 139,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 131." target="_blank" title="Fale conosco pelo WhatsApp">
             			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				<i class="fas fa-shopping-cart"></i>
+               				 <i class="fas fa-shopping-cart"></i>
             			    </button>
-       				        </a>
+       				         </a>
     			        </div>
 		            </div>
                 </div>
                     
-                    <!-- Produto 7 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="colar/Colar Triplo Folheado a Ouro Esfera 029-0160.jpg" alt="Colar Triplo Folheado a Ouro Esfera 029-0160" class="w-full h-64 object-cover">
-                            <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Triplo Folheado a Ouro Esfera 029-0160</h3>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between items-center"> <br>
-                                <span class="font-bold text-[#9F7C38]">R$ 44,90</span>
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:029-0160." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseiras/PL TREVO VAZADO CRAVEJADO 22 7980.avif"
+                             alt="Pulseira Veneziana Trevo Vazado Cravejado" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseiras/PL TREVO VAZADO CRAVEJADO 22 7980.avif,pulseiras/PL TREVO VAZADO CRAVEJADO 22 7980-2.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
                     </div>
-                    
-                    <!-- Produto 8 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="aneis/Anél Bola com Zircônia 013-0490.jpg" alt="Anél Bola com Zircônia 013-0490" class="w-full h-64 object-cover">
-                            <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anél Bola com Zircônia 013-0490</h3><br>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between items-center"> <br>
-                                <span class="font-bold text-[#9F7C38]">R$ 99,80</span>
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:013-0490." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Veneziana Trevo Vazado Cravejado Cód: 22</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 79,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 22." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
+                    
+                <!-- Destaque 8 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990-2.avif"
+                             alt="BR DUETO GLAMOUR CRAVEJADA" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990-2.avif,brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Dueto Glamour Cravejado Cód: 126</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 109,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 126." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+            </div>
                 
-                <!-- EXEMPLO FOTO  OPACA-->
-                    <!-- <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="colar/Colar Duplo Folheado a Ouro Laminado Coração 031-0150.jpg" alt="colar/Colar Duplo Folheado a Ouro Laminado Coração 031-0150" class="w-full h-64 object-cover">
-                             PARA DEIXAR A FOTO OPACA 
-                             <div class="absolute inset-0 bg-gray-800 opacity-40"></div> 
-                            <div class="absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">ESGOTADO</div>
-                            <div class="top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Duplo Folheado a Ouro Laminado Coração 031-0150</h3>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                             CARRINHO NA DIREITA COM PREÇO 
-                            <div class="flex justify-between  items-center">    
-                             CARRINHO CENTRALIZADO SEM PREÇO     ->
-                                 <span class="font-bold text-[#9F7C38]">R$ 49,90</span> 
-                                <span class="font-bold text-[#9F7C38]">Mais Informações </span>                                
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:031-0150." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-
-
+                
                 <div class="text-center mt-8">
                     <!-- Botão para mostrar/ocultar produtos adicionais -->
                     <button onclick="toggleProducts('banhos')" class="inline-block border-2 border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">Ver Mais Destaques de Banhos</button>
@@ -403,12 +550,12 @@
                     <input type="radio" id="todos" name="categoria" class="hidden custom-radio" checked>
                     <label for="destaques" class="bg-[#9F7C38] text-white px-4 py-2 rounded-full text-sm font-medium">Destaques</label>
                 </div>
-                <div class="flex items-center"><a href="colaresprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Colares</a></div>
-                <div class="flex items-center"><a href="brincosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Brincos</a></div>
-                <div class="flex items-center"><a href="aneisprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Anéis</a></div>
-                <div class="flex items-center"><a href="pulseirasprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Pulseiras</a></div>
-                <div class="flex items-center"><a href="conjuntosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Conjuntos</a></div>
-                <div class="flex items-center"><a href="informacoesprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" target="_blank">Informações</a></div>
+                <div class="flex items-center"><a href="colaresprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Colares</a></div> <!--target="_blank"-->
+                <div class="flex items-center"><a href="brincosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Brincos</a></div>
+                <div class="flex items-center"><a href="aneisprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Anéis</a></div>
+                <div class="flex items-center"><a href="pulseirasprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Pulseiras</a></div>
+                <div class="flex items-center"><a href="conjuntosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Conjuntos</a></div>
+                <div class="flex items-center"><a href="informacoesprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Informações</a></div>
             </div>
 
             <!-- Coleção de Prata -->
@@ -418,176 +565,232 @@
                 <!-- Grid de Produtos - Visíveis inicialmente (4 primeiros produtos) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
-                    <!-- Produto 1 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="brincoPrata/Brinco Círculo Zircônia com Cruz Prata 925 054-0398.jpg" alt="Brinco Círculo Zircônia com Cruz Prata 925 054-0398" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                            <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
-                        </div>
-                        <div class="p-4">
-                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Círculo Zircônia com Cruz Prata 925 054-0398</h3>
-                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                        <div class="flex justify-between items-center"> <br>
-                            <span class="font-bold text-[#9F7C38]">R$ 85,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:054-0398." target="_blank" title="Fale conosco pelo WhatsApp">
-                                <button class="text-[#9F7C38] hover:text-amber-800">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produto 2 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                            <div class="relative overflow-hidden">
-                                <img src="brincoPrata/Brinco Cruz com Zircônia Prata 925 055-0245.jpg" alt="Brinco Cruz com Zircônia Prata 925 055-0245" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                                <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                                <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
-                            </div>
-                            <div class="p-4">
-                                <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Cruz com Zircônia Prata 925 055-0245</h3>
-                                <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                                <div class="flex justify-between items-center"> <br>
-                                    <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
-                                    <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:055-0245." target="_blank" title="Fale conosco pelo WhatsApp">
-                                        <button class="text-[#9F7C38] hover:text-amber-800">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                    </div>
-                    
-                    <!-- Produto 3 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="aneisprata/Anel Coração Abaulado Nº16 052-0272.jpg" alt="Anel Coração Abaulado Nº16 052-0272" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                            <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Coração Abaulado Nº16 052-0272</h3>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between items-center"><br>
-                                <span class="font-bold text-[#9F7C38]">R$ 68,00</span>
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:052-0272." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produto 4 -->
-                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="aneisprata/Meia aliança Slim Zircônia Nº18 092-0300.jpg" alt="Meia aliança Slim Zircônia Nº18 092-0300" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                    <!-- Destaque Prata 1 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
+                             alt="Colar Veneziana 40cm e Pingente Fé Prata 925"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
                     </div>
                     <div class="p-4">
-                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Meia aliança Slim Zircônia Nº18 092-0300</h3>
-                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                        <div class="flex justify-between items-center"><br>
-                            <span class="font-bold text-[#9F7C38]">R$ 75,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:092-0300." target="_blank" title="Fale conosco pelo WhatsApp">
-                                <button class="text-[#9F7C38] hover:text-amber-800">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Veneziana 40cm e Pingente Fé Prata 925 Cód: 65 e 62</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 84,40</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 65 e 62." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-            </div>
+                    
+                 <!-- Destaque Prata 2 -->
+                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif"
+                             alt="Anel La Vie Nº17"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif,aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel La Vie Nº17 Cód: 121</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 121." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                
+                <!-- Destaque Prata 3 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif"
+                             alt="Anel Duplo Elegance Nº20"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-3.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Duplo Elegance Nº20 Cód: 122</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 122." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                
+                <!-- Destaque Prata 4 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif"
+                             alt="Brinco Pérola Gota Zircônia Prata 925"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif,logo/Em Breve Prata.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Destaque</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Gota Zircônia Prata 925 Cód: 57</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 149,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 57." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                </div>
                 
                 <!-- Grid de Produtos - Ocultos inicialmente (4 produtos adicionais) -->
                 <div id="hidden-products-prata" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
                     
-                    <!-- Produto 5 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                        <div class="relative overflow-hidden">
-                            <img src="brincoPrata/Brinco Pérola Gota Zircônia Prata 925 057-0685.jpg" alt="Brinco Pérola Gota Zircônia Prata 925 057-0685" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                            <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                            <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
-                        </div>
-                        <div class="p-4">
-                            <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Gota Zircônia Prata 925 057-0685</h3>
-                            <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                            <div class="flex justify-between items-center"><br>
-                                <span class="font-bold text-[#9F7C38]">R$ 149,90</span>
-                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:057-0685." target="_blank" title="Fale conosco pelo WhatsApp">
-                                    <button class="text-[#9F7C38] hover:text-amber-800">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produto 6 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="colarprata/Colar Veneziana 40cm e Pingente Fé 065-0187 062-0138.jpg" alt="Colar Veneziana 40cm e Pingente Fé 065-0187 062-0138" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                <!-- Destaque Prata 5 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
+                             alt="Pulseira Daisy Feminina Prata 925"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
                     </div>
                     <div class="p-4">
-                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Veneziana 40cm e Pingente Fé Prata 925 065-0187 062-0138</h3>
-                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                        <div class="flex justify-between items-center"><br>
-                            <span class="font-bold text-[#9F7C38]">R$ 84,40</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20ítem%20cód:065-0187 e 062-0138." target="_blank" title="Fale conosco pelo WhatsApp">
-                                <button class="text-[#9F7C38] hover:text-amber-800">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Daisy Feminina Prata 925 Cód: 63</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 63." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
                     
-                    <!-- Produto 7 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="pulseirasprata/Pulseira Fígaro 2,2 090-0660.jpg" alt="Pulseira Fígaro 2,2 090-0660" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                <!-- Destaque Prata 6 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif"
+                             alt="Brinco Círculo Zircônia com Cruz Prata 925"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif,logo/Em Breve Prata.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
                     </div>
                     <div class="p-4">
-                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Fígaro 2,2 090-0660</h3><br>
-                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                        <div class="flex justify-between items-center"><br>
-                            <span class="font-bold text-[#9F7C38]">R$ 159,00</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:090-0660." target="_blank" title="Fale conosco pelo WhatsApp">
-                                <button class="text-[#9F7C38] hover:text-amber-800">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Círculo Zircônia com Cruz Prata 925 Cód: 54</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 85,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 54." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
                     
-                    <!-- Produto 8 -->
-                    <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden">
-                        <img src="pulseirasprata/Pulseira Grumet 2,5 091-0750.jpg" alt="Pulseira Grumet 2,5 091-0750" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
-                        <div class="absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class="top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                <!-- Destaque Prata 7 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
+                             alt="Pulseira Fígaro Italiana 2,2"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
                     </div>
                     <div class="p-4">
-                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Grumet 2,5 091-0750</h3><br>
-                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-                        <div class="flex justify-between items-center"><br>
-                            <span class="font-bold text-[#9F7C38]">R$ 189,00</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód:091-0750." target="_blank" title="Fale conosco pelo WhatsApp">
-                                <button class="text-[#9F7C38] hover:text-amber-800">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                            </a>
-                        </div>
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Fígaro Italiana 2,2 Cód: 90</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 159,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 90." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                    
+                <!-- Destaque Prata 8 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
+                             alt="Colar Riviera Color BP"
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho Prata 925</div>    
                     </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Riviera Color BP Cód: 21</h3><br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 75,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 21." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
                 </div>
                 
@@ -602,6 +805,9 @@
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
+
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
     </div>
 
     <!-- Sobre -->
@@ -715,7 +921,8 @@
             </div>
         </div>
     </section>
-
+   
+   
     <!-- Contato -->
     <section id="contato" class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
@@ -724,343 +931,383 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">Tire suas dúvidas, faça encomendas ou envie sugestões. Estamos aqui para ajudar!</p>
             </div>
             
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <form id="contact-form" class="space-y-6">
-                        <div>
-                            <label for="nome" class="block text-gray-700 font-medium mb-2">Seu Nome</label>
-                            <input type="text" id="nome" name="nome" placeholder=" ''Nos contate pelo WhatsApp  'Espaço em Construção' " required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Seu E-mail</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
-                        </div>
-                        
-                        <div>
-                            <label for="telefone" class="block text-gray-700 font-medium mb-2">Seu Telefone (opcional)</label>
-                            <input type="tel" id="telefone" name="telefone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
-                        </div>
-                        
-                        <div>
-                            <label for="assunto" class="block text-gray-700 font-medium mb-2">Assunto</label>
-                            <select id="assunto" name="assunto" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition">
-                                <option value="duvida">Dúvida sobre produtos</option>
-                                <option value="encomenda">Encomenda especial</option>
-                                <option value="sugestao">Sugestão</option>
-                                <option value="outro">Outro</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="mensagem" class="block text-gray-700 font-medium mb-2">Sua Mensagem</label>
-
-                            <textarea id="mensagem" name="mensagem" rows="5" placeholder=" ''Nos contate pelo WhatsApp  'Espaço em Construção' " required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9F7C38] focus:border-[#9F7C38] outline-none transition"></textarea>
-                        </div>
-                        
-                        <div>
-<button type="submit" class="w-full bg-[#9F7C38] text-white font-bold py-3 px-6 rounded-lg transition duration-300 hover:bg-white hover:text-[#9F7C38] hover:border hover:border-[#9F7C38] hover:border-2"> "Espaço em construção, nos chame pelo WhatsApp"</button>
-  <!--Enviar Mensagem-->
-
-     <!--   class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 -->
-
-
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-8 rounded-lg h-full">
-                        <h3 class="title-font text-2xl font-bold text-[#9F7C38] mb-6">Outras formas de contato</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-envelope text-[#9F7C38]"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">E-mail</h4>
-                                    <a href="mailto:divaluzsemijoias@gmail.com" class="text-gray-600 hover:text-[#9F7C38]">divaluzsemijoias@gmail.com</a>
-                                </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                    <h3 class="title-font text-2xl font-bold text-[#9F7C38] mb-6">Nossos canais de contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-envelope text-[#9F7C38]"></i>
                             </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-phone-alt text-[#9F7C38]"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
-                                    <a href="tel:+5548991463351" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fab fa-whatsapp text-[#9F7C38]"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">WhatsApp</h4>
-                                    <a href="https://wa.me/5548991463351" target="_blank" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-map-marker-alt text-[#9F7C38]"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-800 mb-1">Endereço</h4>
-                                    <p class="text-gray-600">  <!--Rua dos Lagos, 450 - Aririú <br> --> Palhoça/SC</p>
-                                </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">E-mail</h4>
+                                <a href="mailto:divaluzsemijoias@gmail.com" class="text-gray-600 hover:text-[#9F7C38] break-all">divaluzsemijoias@gmail.com</a>
                             </div>
                         </div>
                         
-                        <div class="mt-8">
-                            <h4 class="font-bold text-gray-800 mb-4">Horário de Atendimento</h4>
-                            <ul class="space-y-2 text-gray-600">
-                                <li class="flex justify-between">
-                                    <span>Segunda a Sexta</span>
-                                    <span>09:00 - 18:00</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Sábado</span>
-                                    <span>09:00 - 12:00</span>
-                                </li>
-                                <li class="flex justify-between">
-                                    <span>Domingo</span>
-                                    <span>Fechado</span>
-                                </li>
-                            </ul>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-phone-alt text-[#9F7C38]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Telefone</h4>
+                                <a href="tel:+5548991463351" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
+                            </div>
                         </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fab fa-whatsapp text-[#9F7C38]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">WhatsApp</h4>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos." target="_blank" class="text-gray-600 hover:text-[#9F7C38]">(48) 99146-3351</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-[#9F7C38]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Endereço</h4>
+                                <p class="text-gray-600"> 
+                                    <!--Rua dos Lagos, 450 - Aririú <br> --> Palhoça/SC
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Redes Sociais Adicionada -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                        <h4 class="font-bold text-gray-800 mb-4">Siga-nos nas Redes Sociais</h4>
+                        <div class="flex justify-center space-x-6">
+                             <!-- ATENÇÃO: Atualize o link '#' com o seu perfil do Facebook -->
+                            <a href="#" aria-label="Link para o Facebook" class="text-gray-500 hover:text-[#9F7C38] transition duration-300" target="_blank"><i class="fab fa-facebook-f fa-2x"></i></a>
+                            <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" aria-label="Link para o Instagram" class="text-gray-500 hover:text-[#9F7C38] transition duration-300" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                             <!-- ATENÇÃO: Atualize o link '#' com o seu perfil do Pinterest -->
+                            <a href="#" aria-label="Link para o Pinterest" class="text-gray-500 hover:text-[#9F7C38] transition duration-300" target="_blank"><i class="fab fa-pinterest-p fa-2x"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="font-bold text-gray-800 mb-4">Horário de Atendimento</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex justify-between">
+                                <span>Segunda a Sexta</span>
+                                <span>09:00 - 18:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sábado</span>
+                                <span>09:00 - 12:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Domingo</span>
+                                <span>Fechado</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Grupo VIP WhatsApp -->
     <section class="py-16 bg-[#9F7C38] text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Receba Nossas Novidades</h2>
-            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Cadastre-se para receber lançamentos, promoções exclusivas e dicas de como usar suas semijoias.</p>
+            <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
+            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
             
-            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
-
-<!--Seu melhor e-mail-->
-
-                <input type="email" placeholder=" ''Espaço em construção''" required class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
-                <button type="submit" class="bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300 whitespace-nowrap">Cadastrar</button>
-
-
-            </form>
+            <div class="mt-8">
+                <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
+                <a href="https://chat.whatsapp.com/HVG83Q7Rh4tFDZ8wo5LDLN?mode=ems_copy_t" target="_blank" class="inline-flex items-center justify-center bg-transparent hover:bg-[#EFE7DC] hover:text-[#9F7C38] text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                    Entrar no Grupo Agora
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    
+    <!-- Footer ATUALIZADO -->
+    <footer id="footer" class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Sobre a Loja -->
                 <div>
                     <div class="flex items-center mb-4">
-                        <img src="logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3">
-                        <h3 class="title-font text-xl font-bold"></h3>
-                    </div>
-                    <p class="text-gray-400">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
-                    <br>
-                    <p class="text-gray-400">Nos siga nas redes socias.</p>
-                    <div class="flex space-x-4 mt-4">
-			            <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/semijoiasdivaluz?igsh=M20zamlrcG10aWph" class="text-gray-400 hover:text-[#9F7C38]" target="_blank"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
+                        <img src="logo/nomediva.jpg" alt="DivaLuz Semijoias" class="h-10 mr-3 rounded">
+                    </div><br>
+                    <p class="text-gray-400 ">Elegância que ilumina seu estilo com qualidade e sofisticação.</p>
                 </div>
                 
+                <!-- Links Úteis -->
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Links Úteis</h4>
+                    <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Links Úteis</h4>
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-gray-400 hover:text-[#9F7C38] transition">Início</a></li>
                         <li><a href="#produtos" class="text-gray-400 hover:text-[#9F7C38] transition">Produtos</a></li>
                         <li><a href="#sobre" class="text-gray-400 hover:text-[#9F7C38] transition">Sobre Nós</a></li>
                         <li><a href="#contato" class="text-gray-400 hover:text-[#9F7C38] transition">Contato</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-[#9F7C38] transition">Política de Privacidade</a></li>
+                        <!-- <li><a href="#" class="text-gray-400 hover:text-[#9F7C38] transition">Política de Privacidade</a></li> -->
                     </ul>
-                </div>
-                
+                </div>            
+            
+                <!-- Acesso Cliente (Crediário) -->
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4">Minha Conta</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://wa.me/48991463351" target="_blank" class="text-gray-400 hover:text-[#9F7C38] transition">Minha Conta</a></li>
-                        <li><a href="https://wa.me/48991463351" target="_blank" class="text-gray-400 hover:text-[#9F7C38] transition">Meus Pedidos</a></li>
-                        <li><a href="https://wa.me/48991463351" target="_blank" class="text-gray-400 hover:text-[#9F7C38] transition">Lista de Desejos</a></li>
-                        <li><a href="https://wa.me/48991463351" target="_blank" class="text-gray-400 hover:text-[#9F7C38] transition">Rastreamento</a></li>
-                    </ul>
+                <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Acesso Cliente</h4>
+                <form id="crediario-form" class="space-y-3" onsubmit="return false;">
+                    <p class="text-gray-400 text-xs mb-2">Consulte seu crediário aqui.</p>
+
+                    <div>
+                    <label for="cliente-cpf" class="sr-only">CPF</label>
+                    <input type="text" id="cliente-cpf" placeholder="Seu CPF (somente números)" required 
+                            class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#9F7C38]">
+                    </div>
+
+                    <div>
+                    <label for="cliente-senha" class="sr-only">Senha</label>
+                    <input type="password" id="cliente-senha" placeholder="Sua senha" required 
+                            class="w-full bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#9F7C38]">
+                    </div>
+
+                    <button type="button" id="btn-login"
+                            class="w-full bg-[#9F7C38] text-white font-bold py-2 px-4 rounded-lg text-sm transition duration-300 hover:bg-opacity-80">
+                    Entrar
+                    </button>
+
+                    <p id="error-message" class="text-red-500 text-xs text-center mt-2 hidden">
+                    CPF ou senha incorretos. Tente novamente.
+                    </p>
+                </form>
                 </div>
+
                 
+                <!-- Formas de Pagamento -->
                 <div>
-                    <h4 class="title-font font-bold text-lg mb-4 ">Formas de Pagamento</h4>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-visa text-2xl"></i>
+                    <h4 class="title-font font-bold text-lg mb-4 tracking-wider">Formas de Pagamento</h4>
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-money-bill-wave text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Dinheiro</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-mastercard text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fab fa-pix text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">PIX</p>
                         </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fab fa-cc-amex text-2xl"></i>
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-credit-card text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Cartões</p>
                         </div>
-                        
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-barcode text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <i class="fas fa-money-bill-wave text-2xl"></i>
-                        </div>
-                        <div class="bg-gray-800 p-2 rounded flex items-center justify-center">
-                            <!-- <i class="fab fa-cc-paypal text-2xl"></i> -->
+                        <div class="text-center text-gray-400">
+                            <i class="fas fa-link text-3xl text-[#9F7C38]"></i>
+                            <p class="text-xs mt-1">Link</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-[#9F7C38]">
-                <p>&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
+            <div class="border-t border-[#9F7C38] mt-12 pt-8 text-center text-gray-500">
+                <p class="text-sm">&copy; 2025 DivaLuz Semijoias. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
     
     <script>
-        // Menu mobile toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+    console.log('JS: DOM pronto — iniciando scripts do rodapé');
 
-        // Form submission (simulado)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Aqui você normalmente enviaria o formulário para o servidor
-            // Este é apenas um exemplo de simulação
-            
-            // Pegar valores do formulário
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            
-            // Mostrar mensagem de sucesso
-            alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato pelo e-mail ${email} em breve.`);
-            
-            // Limpar formulário
-            this.reset();
-        });
+    try {
+    // --- Menu Mobile (somente se existir)
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      console.log('JS: menu mobile ativo');
+    } else {
+      console.log('JS: menuToggle/mobileMenu não encontrados (ok se não usar menu mobile)');
+    }
 
-        // Filtro de produtos (simulado)
-        const radios = document.querySelectorAll('input[name="categoria"]');
-        radios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                // Aqui você normalmente filtraria os produtos com base na categoria selecionada
-                // Este é apenas um exemplo de simulação
-                console.log(`Filtrando por: ${this.id}`);
-            });
-        });
+    // --- Mostrar/Ocultar Produtos (função global para manter compatibilidade com onclick inline)
+    window.toggleProducts = function(collection, btn) {
+      try {
+        const hiddenProducts = collection === 'banhos' ?
+          document.getElementById('hidden-products-banhos') :
+          document.getElementById('hidden-products-prata');
 
-        // Scroll suave para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Fechar menu mobile se aberto
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-        // Mostrar mais produtos - Função corrigida
-        document.getElementById('show-more-btn').addEventListener('click', function() {
-            // Seleciona a div que contém os produtos ocultos
-            const hiddenProducts = document.getElementById('hidden-products');
-            
-            // Verifica se os produtos estão ocultos (tem a classe 'hidden')
-            if (hiddenProducts.classList.contains('hidden')) {
-                // Remove a classe 'hidden' para mostrar os produtos
-                hiddenProducts.classList.remove('hidden');
-                // Muda o texto do botão para "Mostrar Menos"
-                this.textContent = 'Mostrar Menos';
-            } else {
-                // Adiciona a classe 'hidden' para ocultar os produtos
-                hiddenProducts.classList.add('hidden');
-                // Muda o texto do botão para "Ver Todos os Produtos"
-                this.textContent = 'Ver Todos os Produtos';
-            }
-            
-            // Rolagem suave para a seção de produtos
-            document.getElementById('produtos').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-        function toggleProducts(colecao) {
-            const hiddenProducts = document.getElementById(`hidden-products-${colecao}`);
-            const button = event.target;
-            
-            if (hiddenProducts.classList.contains('hidden')) {
-                hiddenProducts.classList.remove('hidden');
-                if (colecao === 'banhos') {
-                    button.textContent = 'Ver Menos Destaques';
-                } else {
-                    button.textContent = 'Ver Menos Destaques';
-                }
-            } else {
-                hiddenProducts.classList.add('hidden');
-                if (colecao === 'banhos') {
-                    button.textContent = 'Ver Mais Destaques de Banhos';
-                } else {
-                    button.textContent = 'Ver Mais Destaques de Prata';
-                }
-            }
-            
-            // Rolagem suave para a seção de produtos
-            document.getElementById('produtos').scrollIntoView({
-                behavior: 'smooth'
-            });
+        const button = btn || (window.event && window.event.currentTarget) || null;
+        if (!hiddenProducts) {
+          console.warn('toggleProducts: elemento não encontrado para', collection);
+          return;
         }
 
-                // Menu mobile toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        if (hiddenProducts.classList.contains('hidden')) {
+          hiddenProducts.classList.remove('hidden');
+          if (button) button.textContent = 'Ver Menos';
+        } else {
+          hiddenProducts.classList.add('hidden');
+          if (button) button.textContent = collection === 'banhos' ? 'Ver Mais Destaques de Banhos' : 'Ver Mais Destaques de Prata';
+        }
+      } catch (err) { console.error('toggleProducts error', err); }
+    };
+
+    // --- Modal de Imagem (funções globais)
+    let modal = null;
+    let modalImg = null;
+    let currentImages = [];
+    let currentIndex = 0;
+
+    window.openModal = function(img) {
+      try {
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.className = 'modal';
+          modal.innerHTML = `
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modal-img">
+            <a class="prev" onclick="prevImage(event)">&#10094;</a>
+            <a class="next" onclick="nextImage(event)">&#10095;</a>
+          `;
+          document.body.appendChild(modal);
+        }
+
+        modal.style.display = 'block';
+        modalImg = document.getElementById('modal-img');
+
+        const imagesAttr = img.dataset && img.dataset.images ? img.dataset.images : img.src;
+        currentImages = imagesAttr.split(',');
+        currentIndex = parseInt(img.dataset.currentIndex) || 0;
+
+        modalImg.src = currentImages[currentIndex];
+      } catch (err) { console.error('openModal error', err); }
+    };
+
+    window.closeModal = function() { if (modal) modal.style.display = 'none'; };
+    window.prevImage = function(event) { try { event.stopPropagation(); currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; if (modalImg) modalImg.src = currentImages[currentIndex]; } catch(e){console.error(e);} };
+    window.nextImage = function(event) { try { event.stopPropagation(); currentIndex = (currentIndex + 1) % currentImages.length; if (modalImg) modalImg.src = currentImages[currentIndex]; } catch(e){console.error(e);} };
+
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) closeModal();
+    });
+
+    // --- Trocar imagens dentro do card (função global)
+    window.changeProductImage = function(event, direction) {
+      try {
+        event.stopPropagation();
+        const card = event.currentTarget.closest('.group');
+        const img = card.querySelector('img');
+        let images = img.dataset.images ? img.dataset.images.split(',') : [img.src];
+        let index = parseInt(img.dataset.currentIndex) || 0;
+        index += direction;
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        img.dataset.currentIndex = index;
+        img.src = images[index];
+      } catch (err) { console.error('changeProductImage error', err); }
+    };
+
+    // --- Smooth scroll para âncoras
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // --- Cards (abrir / fechar) com checagem de elementos
+    document.querySelectorAll('.card').forEach(card => {
+      const verMais = card.querySelector('.ver-mais');
+      const verMenos = card.querySelector('.ver-menos');
+      const conteudo = card.querySelector('.conteudo');
+
+      if (verMais) {
+        verMais.addEventListener('click', () => {
+          if (!conteudo) return;
+          conteudo.style.maxHeight = conteudo.scrollHeight + "px";
+          conteudo.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-
-        // Menu mobile toggle (existente)
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+      }
+      if (verMenos) {
+        verMenos.addEventListener('click', () => {
+          if (!conteudo) return;
+          conteudo.style.maxHeight = "0px";
+          verMais && verMais.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+      }
+    });
 
-        // Código adicionado para o modal
-        // function openModal(imgElement) {
-        //     const modal = document.getElementById("imageModal");
-        //     const modalImg = document.getElementById("modalImage");
-            
-        //     modal.style.display = "block";
-        //     modalImg.src = imgElement.src;
-        //     modalImg.alt = imgElement.alt;
-        // }
+    // --- Lista de clientes (CPF, senha e link)
+    const clientes = [
+        //Cliente 1 = Nome
+      { cpf: "11111111111", senha: "senha1", link: "https://docs.google.com/spreadsheets/d/12WRTVcEC9SiPtLEzrDM8zpLYUcIF3ynbAgTAMvCt0YM/edit?usp=drive_link" },
+        //Cliente 2 = Nome
+      { cpf: "22222222222", senha: "senha2", link: "https://docs.google.com/spreadsheets/d/1f8j69T6Mvib6JsSb4hciUkEDwhZhCAdhXMu1mQMcBAQ/edit?usp=sharing" },
+        //Cliente 3 = Nome
+      { cpf: "33333333333", senha: "senha3", link: "https://docs.google.com/spreadsheets/d/145CvINgpyODoga7IQpD4jJITKEYlrg8vzNyKFCgXZI8/edit?usp=sharing" },
+        //Cliente 4 = Nome
+      { cpf: "44444444444", senha: "senha4", link: "https://docs.google.com/spreadsheets/d/1tPGZe9cr_V6d2Jymt-WiNHPQb8Ap0t6A6wMuLYcf7KM/edit?usp=sharing" },
+        //Cliente 5 = Nome
+      { cpf: "55555555555", senha: "senha5", link: "https://docs.google.com/spreadsheets/d/1JpEo5sD9gauEzKhFhLM6WbKQ4OaFreCz1ANEZyqEyN4/edit?usp=sharing" },
+        //Cliente 6 = Nome
+      { cpf: "66666666666", senha: "senha6", link: "https://docs.google.com/spreadsheets/d/1W8Yapj7nJ2ONgNi1MX1qCqwoI24iKvgQogqrzrtvZMQ/edit?usp=sharing" },
+        //Cliente 7 = Nome
+      { cpf: "77777777777", senha: "senha7", link: "https://docs.google.com/spreadsheets/d/1AA3Hk8f3TT1qkwixDIYeNrtN6xI3lIO8coGFJkgtDpQ/edit?usp=sharing" },
+        //Cliente 8 = Nome
+      { cpf: "88888888888", senha: "senha8", link: "https://docs.google.com/spreadsheets/d/1qc3Y6sq1NMZCPxP_KgtRqknQtuHbaFGEudXDbs8BW7c/edit?usp=sharing" },
+        //Cliente 9 = Nome
+      { cpf: "99999999999", senha: "senha9", link: "https://docs.google.com/spreadsheets/d/1mMXOXhu8Pmozf8DZEgyJ1NN1mP9jVbe8Dakkqsc5hW8/edit?usp=sharing" },
+        //Cliente 10 = Nome
+      { cpf: "12345678900", senha: "senha10", link: "https://docs.google.com/spreadsheets/d/1pv3u9hxc9LM01XZ4sQhduXzKKFrwIsgRqlSZSBz6qxE/edit?usp=sharing" }
+    ];
 
-        // function closeModal() {
-        //     document.getElementById("imageModal").style.display = "none";
-        // }
+    // --- Login (garante fallback se popup for bloqueado)
+    const btnLogin = document.getElementById('btn-login');
+    if (btnLogin) {
+      console.log('JS: btn-login encontrado');
+      btnLogin.addEventListener('click', (e) => {
+        try {
+          e.preventDefault();
+          console.log('JS: clique no botão login');
 
-        // // Fechar modal ao clicar fora da imagem
-        // window.onclick = function(event) {
-        //     const modal = document.getElementById("imageModal");
-        //     if (event.target == modal) {
-        //         closeModal();
-        //     }
-        // }
-        
-    </script>
+          const inputCpf = document.getElementById('cliente-cpf');
+          const inputSenha = document.getElementById('cliente-senha');
+          const errorMessage = document.getElementById('error-message');
+
+          const cpfDigitado = inputCpf ? inputCpf.value.replace(/\D/g, "") : '';
+          const senhaDigitada = inputSenha ? inputSenha.value.trim() : '';
+
+          const cliente = clientes.find(c => c.cpf === cpfDigitado && c.senha === senhaDigitada);
+
+          if (cliente) {
+            console.log('JS: login OK — abrindo link', cliente.link);
+            if (errorMessage) errorMessage.classList.add('hidden');
+
+            const newWin = window.open(cliente.link, '_blank');
+            if (!newWin) {
+              // popup bloqueado → abre na mesma aba
+              console.warn('Popup bloqueado — abrindo na mesma aba');
+              window.location.href = cliente.link;
+            }
+          } else {
+            console.log('JS: CPF ou senha incorretos');
+            if (errorMessage) errorMessage.classList.remove('hidden');
+          }
+        } catch (err) {
+          console.error('Erro no handler de login', err);
+        }
+      });
+    } else {
+      console.warn('btn-login não encontrado — verifique id no HTML');
+    }
+
+    console.log('JS: scripts do rodapé carregados com sucesso');
+  } catch (globalErr) {
+    console.error('Erro geral no script do rodapé', globalErr);
+  }
+});
+</script>
+
 </body>
-
 </html>
-
-
