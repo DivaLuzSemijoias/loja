@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DivaLuz Semijoias - Coleção de Colares</title>
+    <title>DivaLuz Semijoias - Coleção de Conjuntos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -216,7 +216,8 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
     <!-- Produtos -->
     <section class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
-            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-16 text-center">Banhos de Ouro</h2>
+            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-8 text-center">Banhos de Ouro</h2>
+            <p class="text-center text-[#9F7C38] mb-8 title-font text-xl md:text-2xl font-semibold">Confira novidades todos os dias!</p>
             <!-- Filtros de navegação -->
             <div class="flex flex-wrap justify-center gap-4 mb-8">
 
@@ -232,7 +233,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
             <!-- Grid de Produtos - 4 colunas -->
             <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Conjunto -->
+                <!-- Conjunto 1-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="conjuntos/CJ FOLHEADO A OURO CORRENTARIA 42 5490.avif"
@@ -260,7 +261,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto 1 -->
+                <!-- Conjunto 2 -->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="conjuntos/CJ CHAPINHA FLOR TRAB. E GRUMET 45CM 88 E 100 21460.avif"
@@ -288,7 +289,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
+                <!-- Conjunto 3-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="conjuntos/CONJUNTO-BORBOLETA-FOL.-AU-131-13990.avif"
@@ -316,7 +317,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
+                <!-- Conjunto 4-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="conjuntos/CONJUNTO-ARVORE-DA-VIDA-FOL.-AU-CX-132-15990.avif"
@@ -344,7 +345,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
+                <!-- Conjunto 5-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/em breve.png"
@@ -372,7 +373,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
+                <!-- Conjunto 6-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/em breve.png"
@@ -400,7 +401,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
+                <!-- Conjunto 7-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/em breve.png"
@@ -428,8 +429,8 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
 		            </div>
                 </div>
 
-                <!-- Conjunto -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                <!-- Conjunto 8-->
+                <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/em breve.png"
                              alt="Em Breve" 
@@ -454,9 +455,9 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
        				         </a>
     			        </div>
 		            </div>
-                </div>
+                </div> -->
 
-                <!-- Conjunto -->
+                <!-- Conjunto 9-->
                 <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/em breve.png"
@@ -500,7 +501,7 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
     <section class="py-16 bg-[#9F7C38] text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
-            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+            <p class="text max-w-2xl mx-auto mb-8">Receba em primeira mão nossos lançamentos e o catálogo completo!</p>
         
             <div class="mt-8">
                 <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
@@ -692,8 +693,39 @@ url('./conjuntos/conjuntoshero.png'); background-size: contain; background-posit
     }
     });
 
+    // Função para obter 4 índices aleatórios diferentes a cada dia       
+    function getDailyRandomIndices(total, qtd) {
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+        function seededRandom(seed) {
+            var x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+
+        const indices = Array.from({ length: total }, (_, i) => i);
+        const chosen = [];
+
+        while (chosen.length < qtd && indices.length > 0) {
+            const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+            chosen.push(indices.splice(rand, 1)[0]);
+        }
+
+        return chosen;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const products = document.querySelectorAll(".product-card");
+        const indices = getDailyRandomIndices(products.length, 4);
+
+        // esconde todos
+        products.forEach(p => p.style.display = "none");
+
+        // mostra só os escolhidos
+        indices.forEach(i => products[i].style.display = "block");
+    });
+
     </script>
 
 </body>
-
 </html>

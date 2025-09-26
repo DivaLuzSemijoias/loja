@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DivaLuz Semijoias - Elegância que Ilumina</title>
+    <title>DivaLuz Semijoias - Início</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -17,29 +17,22 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
             background-color: #EFE7DC;
-        }
-        
+        }        
         .title-font {
             font-family: 'Playfair Display', serif;
-        }
-        
+        }        
         .hero-section {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url('./logo/imagemhero.jpg');
             background-size: cover;
             background-position: center;
         }
-
-
-
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
+        }        
         .product-card {
             transition: all 0.3s ease;
-        }
-        
+        }        
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -58,11 +51,9 @@
             justify-content: center;
             transition: transform 0.3s ease-in-out;
         }
-
         .whatsapp-float:hover {
             transform: scale(1.1);
         }
-
         /* Estilos adicionados para o modal */
         .modal {
             display: none;
@@ -74,8 +65,7 @@
             height: 100%;
             background-color: rgba(0,0,0,0.9);
             overflow: auto;
-        }
-        
+        }        
         .modal-content {
             margin: auto;
             display: block;
@@ -85,13 +75,11 @@
             position: relative;
             top: 50%;
             transform: translateY(-50%);
-        }
-        
+        }        
         @keyframes zoom {
             from {transform: scale(0.5) translateY(-100%);}
             to {transform: scale(1) translateY(-50%);}
-        }
-        
+        }        
         .close {
             position: absolute;
             top: 15px;
@@ -101,8 +89,7 @@
             font-weight: bold;
             transition: 0.3s;
             cursor: pointer;
-        }
-        
+        }        
         /* Estilos para a galeria do modal */
         .prev, .next {
             cursor: pointer;
@@ -118,22 +105,18 @@
             border-radius: 0 3px 3px 0;
             user-select: none; /* impede que o texto seja selecionado */
         }
-
         .next {
             right: 0;
             border-radius: 3px 0 0 3px;
         }
-
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,0.8);
             color: #9F7C38; /* Cor dourada do seu site */
         }
-
         .close:hover {
             color: #9F7C38;
         }
-
-                /* Estilos para as setas na vitrine de produtos */
+        /* Estilos para as setas na vitrine de produtos */
         .card-arrow {
             position: absolute;
             top: 50%;
@@ -146,16 +129,13 @@
             opacity: 0; /* Começa invisível */
             z-index: 10;
         }
-
         /* Mostra as setas quando o mouse está sobre o 'group' (o container da imagem) */
         .group:hover .card-arrow {
             opacity: 1;
         }
-
         .card-arrow:hover {
             background-color: #9F7C38; /* Cor dourada do seu site */
         }
-
         /* Posiciona as setas na esquerda e direita */
         .left-0 {
             left: 0;
@@ -164,33 +144,24 @@
         .right-0 {
             right: 0;
             border-radius: 4px 0 0 4px;
-        }
-        
-      
-        
-       
+        }       
         .custom-radio:checked + .custom-radio-label {
             border-color: #9F7C38;
             background-color: #F8F1E9;
-        }
-        
+        }        
         /* Classe para ocultar os produtos extras inicialmente */
         .hidden {
             display: none;
         }
-
         .conteudo {
             overflow: hidden;
             max-height: 0;
             transition: max-height 0.5s ease;
         }
-
-
         /* html {
     scroll-behavior: smooth;
         } */        
-            
-                
+                         
     </style>
 </head>
 
@@ -204,11 +175,9 @@
     <header class="bg-[#EFE7DC] shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-
                 <!-- Logo  -->
                 <img src="logo\nomediva.jpg" alt="DivaLuz Semijoias" class="h-12 mr-3">		
-                <h1 class="title-font text-2xl font-bold text-[#9F7C38]">(48) 9 9146-3351</h1>
-
+                <h1><a href="https://wa.me/5548991463351" class="title-font text-2xl font-bold text-[#9F7C38]" target="_blank">(48) 9 9146-3351</a></h1>
             </div>
 
 		    <nav class="hidden md:flex space-x-8">
@@ -233,7 +202,7 @@
             <a href="#produtos" class="block py-2 text-gray-700 font-medium">Produtos</a>
             <a href="#sobre" class="block py-2 text-gray-700 font-medium">Sobre</a>
             <a href="#contato" class="block py-2 text-gray-700 font-medium">Contato</a>
-			<a href="#footer" class="block py-2 text-gray-700 font-medium">Acesso Cliente</a>
+            <a href="#footer" class="block py-2 text-gray-700 font-medium">Acesso Cliente</a>
         </div>
     </header>
 
@@ -306,11 +275,10 @@
                 <div class="flex items-center"><a href="pulseiras.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Pulseiras</a></div>
                 <div class="flex items-center"><a href="conjuntos.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Conjuntos</a></div>
                 <div class="flex items-center"><a href="informacoes.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Informações</a></div>
-            </div>
-            
+            </div>            
                             
             <!-- Grid de Produtos - 4 colunas -->
-            <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"> 
+            <div id="ouro-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"> 
 
                 <!-- Destaque 1 -->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
@@ -423,10 +391,6 @@
     			        </div>
 		            </div>
                 </div>
-            </div>
-                
-                <!-- Grid de Produtos - Ocultos inicialmente (8 produtos adicionais) -->
-                <div id="hidden-products-banhos" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
 
                 <!-- Destaque 5 -->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
@@ -483,7 +447,8 @@
     			        </div>
 		            </div>
                 </div>
-                    
+                
+                <!-- Destaque 7 -->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="pulseiras/PL TREVO VAZADO CRAVEJADO 22 7980.avif"
@@ -522,7 +487,7 @@
                              data-images="brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990-2.avif,brinco/BR-DUETO-GLAMOUR-CRAVEJADA-FOL-AU-126-10990.avif"
                              data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
                             <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">NOVIDADE</div>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
                         <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 7 milésimos</div>    
                     </div>
                     <div class="p-4">
@@ -538,274 +503,600 @@
     			        </div>
 		            </div>
                 </div>
-            </div>
-                
-                
-                <div class="text-center mt-8">
-                    <!-- Botão para mostrar/ocultar produtos adicionais -->
-                    <button onclick="toggleProducts('banhos')" class="inline-block border-2 border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">Ver Mais Destaques de Banhos</button>
+
+                <!-- Destaque 9 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="colar/COL-CORACAO-CRAVEJADO-DOURADO-ACO-115-3990-2.avif"
+                             alt="COL-CORACAO-CRAVEJADO-DOURADO-ACO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="colar/COL-CORACAO-CRAVEJADO-DOURADO-ACO-115-3990-2.avif,colar/COL-CORACAO-CRAVEJADO-DOURADO-ACO-115-3990-3.avif,colar/COL-CORACAO-CRAVEJADO-DOURADO-ACO-115-3990.avif"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Ouro 18k - 5 a 7 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Coração Cravejado Aço Cód: 115</h3> <br>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 39,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 115." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
                 </div>
-            </div>
+
+                <!-- Destaque 10 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR FOLHEADO A OURO FOTOCORROSÃO 68 2900.avif"
+                             alt="BR FOLHEADO A OURO FOTOCORROSÃO" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR FOLHEADO A OURO FOTOCORROSÃO 68 2900.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Folheado Fotocorrosão Cód: 68</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,00</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 68." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Destaque 11 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="aneis/ANEL-CORACAO-E-FOLHA-CRAVEJADA-16-7480.avif"
+                             alt="Anél Coração e Folha Cravejada Cód. 16" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="aneis/ANEL-CORACAO-E-FOLHA-CRAVEJADA-16-7480.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 10 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Coração e Folha Cravejada Regulável Cód. 16</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 74,80</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 16." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Destaque 12 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseiras/PL FOLHEADO A OURO ESCAMA STRASS CRISTAL 40 2490.avif"
+                             alt="Pulseira Folheada a Ouro 3 Escama Strass Cristal" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseiras/PL FOLHEADO A OURO ESCAMA STRASS CRISTAL 40 2490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Folheada a Ouro Escama Strass Cristal Cód: 40</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 24,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 40." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Destaque 13 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="pulseiras/PL FOLHEADO A OURO 3 FIOS MEDALHINHAS STRASS 37 2490.avif"
+                             alt="Pulseira Folheada a Ouro 3 Fios Medalhinhas Strass" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="pulseiras/PL FOLHEADO A OURO 3 FIOS MEDALHINHAS STRASS 37 2490.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Folheada a Ouro 3 Fios Medalhinhas Strass Cód: 37</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 24,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 37." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+                <!-- Destaque 14 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="colar/CHOKER FOLHEADO A OURO TRANÇADA 35 2990.avif"
+                             alt="Choker folheado a ouro Trançada" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="colar/CHOKER FOLHEADO A OURO TRANÇADA 35 2990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 a 4 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Choker Folheado a Ouro Trançada Cód: 35</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 35." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+                
+                <!-- Destaque 15 -->
+                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden group">
+                        <img src="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR 50 1990.avif"
+                             alt="BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR" 
+                             loading="lazy"
+                             class="w-full h-64 object-cover cursor-pointer" 
+                             onclick="openModal(this)"
+                             data-images="brinco/BR CARTELA FOLHEADO A OURO CORAÇÃO FLOR 50 1990.avif,logo/em breve.png"
+                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                            <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                        <div class=" top-2 text-center bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">Banho de Ouro 18k - 3 milésimos</div>    
+                    </div>
+                    <div class="p-4">
+    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Cartela de Brinco folheado Coração Flor Cód: 50</h3>
+    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+    			        <div class="flex justify-between items-center"><br>
+        			        <span class="font-bold text-[#9F7C38]">R$ 19,90</span>
+                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 50." target="_blank" title="Fale conosco pelo WhatsApp">
+            			    <button class="text-[#9F7C38] hover:text-amber-800">
+               				 <i class="fas fa-shopping-cart"></i>
+            			    </button>
+       				         </a>
+    			        </div>
+		            </div>
+                </div>
+
+            </div> <!--Fim div Ouro-->
 
                <!-- Coleção de Prata -->
-            <div class="mb-16">
+            <div class="mb-16"><br><br>
                 <h3 class="title-font text-2xl md:text-3xl font-bold text-[#9F7C38] mb-6 text-center">Coleção de Prata</h3>
             
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <div class="flex items-center">
-                    <input type="radio" id="todos" name="categoria" class="hidden custom-radio" checked>
-                    <label for="destaques" class="bg-[#9F7C38] text-white px-4 py-2 rounded-full text-sm font-medium">Destaques</label>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <div class="flex items-center">
+                        <input type="radio" id="todos" name="categoria" class="hidden custom-radio" checked>
+                        <label for="destaques" class="bg-[#9F7C38] text-white px-4 py-2 rounded-full text-sm font-medium">Destaques</label>
+                    </div>
+                    <div class="flex items-center"><a href="colaresprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Colares</a></div> <!--target="_blank"-->
+                    <div class="flex items-center"><a href="brincosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Brincos</a></div>
+                    <div class="flex items-center"><a href="aneisprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Anéis</a></div>
+                    <div class="flex items-center"><a href="pulseirasprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Pulseiras</a></div>
+                    <div class="flex items-center"><a href="conjuntosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Conjuntos</a></div>
+                    <div class="flex items-center"><a href="informacoesprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Informações</a></div>
                 </div>
-                <div class="flex items-center"><a href="colaresprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Colares</a></div> <!--target="_blank"-->
-                <div class="flex items-center"><a href="brincosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Brincos</a></div>
-                <div class="flex items-center"><a href="aneisprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Anéis</a></div>
-                <div class="flex items-center"><a href="pulseirasprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Pulseiras</a></div>
-                <div class="flex items-center"><a href="conjuntosprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Conjuntos</a></div>
-                <div class="flex items-center"><a href="informacoesprata.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition" >Informações</a></div>
-            </div>
 
-            <!-- Coleção de Prata -->
-            <!-- <div class="mb-16">
+                <!-- Coleção de Prata -->
+                <!-- <div class="mb-16">
                 <h3 class="title-font text-2xl md:text-3xl font-bold text-[#9F7C38] mb-6 text-center">Coleção de Prata</h3>
                  -->
                 <!-- Grid de Produtos - Visíveis inicialmente (4 primeiros produtos) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div id="prata-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
                     <!-- Destaque Prata 1 -->
                     <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
-                             alt="Colar Veneziana 40cm e Pingente Fé Prata 925"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        <div class="relative overflow-hidden group">
+                            <img src="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
+                                alt="Colar Veneziana 40cm e Pingente Fé Prata 925"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="colarprata/CL-VENEZIANA-40CM-E-PG-FE-65-62-8440.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Veneziana 40cm e Pingente Fé Prata 925 Cód: 65 e 62</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 84,40</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 65 e 62." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Veneziana 40cm e Pingente Fé Prata 925 Cód: 65 e 62</h3>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 84,40</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 65 e 62." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
                     
-                 <!-- Destaque Prata 2 -->
-                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif"
-                             alt="Anel La Vie Nº17"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif,aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                     <!-- Destaque Prata 2 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif"
+                                alt="Anel La Vie Nº17"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif,aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel La Vie Nº17 Cód: 121</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 121." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel La Vie Nº17 Cód: 121</h3><br>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 121." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
                 
-                <!-- Destaque Prata 3 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif"
-                             alt="Anel Duplo Elegance Nº20"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-3.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                    <!-- Destaque Prata 3 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif"
+                                alt="Anel Duplo Elegance Nº20"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-3.avif,aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho de Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Duplo Elegance Nº20 Cód: 122</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 122." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Duplo Elegance Nº20 Cód: 122</h3><br>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 29,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 122." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
                 
-                <!-- Destaque Prata 4 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif"
-                             alt="Brinco Pérola Gota Zircônia Prata 925"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif,logo/Em Breve Prata.png"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Destaque</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                    <!-- Destaque Prata 4 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif"
+                                alt="Brinco Pérola Gota Zircônia Prata 925"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="brincoPrata/BR-PEROLA-GOTA-ZIRCONIA-PRATA925-57-14990.avif,logo/Em Breve Prata.png"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Gota Zircônia Prata 925 Cód: 57</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 149,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 57." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Pérola Gota Zircônia Prata 925 Cód: 57</h3>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 149,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 57." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
-                </div>
-                
-                <!-- Grid de Produtos - Ocultos inicialmente (4 produtos adicionais) -->
-                <div id="hidden-products-prata" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
+
+                    <!-- Destaque Prata 5 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
+                                alt="Pulseira Daisy Feminina Prata 925"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Daisy Feminina Prata 925 Cód: 63</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 63." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
-                <!-- Destaque Prata 5 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
-                             alt="Pulseira Daisy Feminina Prata 925"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                    <!-- Destaque Prata 6 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif"
+                                alt="Brinco Círculo Zircônia com Cruz Prata 925"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif,logo/Em Breve Prata.png"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Círculo Zircônia com Cruz Prata 925 Cód: 54</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 85,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 54." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Daisy Feminina Prata 925 Cód: 63</h3>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 89,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 63." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
+                        
+                    <!-- Destaque Prata 7 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
+                                alt="Pulseira Fígaro Italiana 2,2"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Fígaro Italiana 2,2 Cód: 90</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 159,80</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 90." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <!-- Destaque Prata 8 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
+                                alt="Colar Riviera Color BP"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Riviera Color BP Cód: 21</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 75,80</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 21." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destaque Prata 9 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="colarprata/CL-CHAPINHA-CORACAO-BP-19-3980.avif"
+                                alt="Colar Chapinha Coração BP"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="colarprata/CL-CHAPINHA-CORACAO-BP-19-3980.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Chapinha Coração BP Cód: 19</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 39,80</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 19." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destaque Prata 10 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="aneisprata/AN-CORACAO-ABAULADO-N16-52-6800.avif"
+                                alt="Anel Coração Abaulado Nº16"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="aneisprata/AN-CORACAO-ABAULADO-N16-52-6800.avif,logo/Em Breve Prata.png"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Anel Coração Abaulado Nº16 Cód: 52</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 68,00</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 52." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Destaque Prata 11 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="aneisprata/AN-MEIA-ALIANCA-SLIM-ZIRCONIA-N18-92-7580.avif"
+                                alt="Meia aliança Slim Zircônia Nº18"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="aneisprata/AN-MEIA-ALIANCA-SLIM-ZIRCONIA-N18-92-7580.avif,logo/Em Breve Prata.png"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Meia aliança Slim Zircônia Nº18 Cód: 92</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 75,80</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 92." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
-                <!-- Destaque Prata 6 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif"
-                             alt="Brinco Círculo Zircônia com Cruz Prata 925"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="brincoPrata/BR-CIRCULO-ZIRCONIA-COM-CRUZ-PRATA925-54-8590.avif,logo/Em Breve Prata.png"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                    <!-- Destaque Prata 12 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="brincoPrata/BR-CRUZ-COM-ZIRCONIA-PRATA925-55-5990.avif"
+                                alt="Brinco Cruz com Zircônia Prata 925"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="brincoPrata/BR-CRUZ-COM-ZIRCONIA-PRATA925-55-5990.avif,logo/Em Breve Prata.png"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Cruz com Zircônia Prata 925 Cód: 55</h3>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 59,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 55." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Brinco Círculo Zircônia com Cruz Prata 925 Cód: 54</h3>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 85,90</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 54." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
+
+                    <!-- Destaque Prata 13 -->
+                    <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="relative overflow-hidden group">
+                            <img src="colarprata/CL-CORAÇÃO-PRATA-ACO-114-4390.avif"
+                                alt="Colar Coração Prata BP Aço"
+                                loading="lazy"
+                                class="w-full h-64 object-cover cursor-pointer" 
+                                onclick="openModal(this)"
+                                data-images="colarprata/CL-CORAÇÃO-PRATA-ACO-114-4390.avif"
+                                data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
+                                <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
+                                <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
+                            <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Aço com Banho de Prata 925</div>    
+                        </div>
+                        <div class="p-4">
+                        <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Coração Prata BP Aço Cód: 114</h3><br>
+                        <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
+                            <div class="flex justify-between items-center"><br>
+                                <span class="font-bold text-[#9F7C38]">R$ 43,90</span>
+                                <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 114." target="_blank" title="Fale conosco pelo WhatsApp">
+                                <button class="text-[#9F7C38] hover:text-amber-800">
+                                <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
-                <!-- Destaque Prata 7 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
-                             alt="Pulseira Fígaro Italiana 2,2"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Prata 925</div>    
-                    </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Pulseira Fígaro Italiana 2,2 Cód: 90</h3><br>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 159,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 90." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
+                </div> <!--Fim div Prata-->
+
+                <div class="container mx-auto px-4">          
+                    <div class="border-t border-[#9F7C38] mt-24 pt-8 text-center text-gray-500"></div>
                 </div>
-                    
-                <!-- Destaque Prata 8 -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
-                    <div class="relative overflow-hidden group">
-                        <img src="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
-                             alt="Colar Riviera Color BP"
-                             loading="lazy"
-                             class="w-full h-64 object-cover cursor-pointer" 
-                             onclick="openModal(this)"
-                             data-images="colarprata/CL-RIVIERA-COLOR-BP-21-7580.avif"
-                             data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
-                            <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
-                            <div class="status-badge absolute top-2 right-2 bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">DESTAQUE</div>
-                        <div class=" top-2 text-center bg-[#999999] text-white text-xs font-bold px-2 py-1 rounded">Banho Prata 925</div>    
-                    </div>
-                    <div class="p-4">
-    			    <h3 class="title-font font-bold text-lg text-gray-800 mb-1">Colar Riviera Color BP Cód: 21</h3><br>
-    			    <p class="text-gray-600 text-sm mb-3">Brilho intenso para destacar seu estilo</p>
-    			        <div class="flex justify-between items-center"><br>
-        			        <span class="font-bold text-[#9F7C38]">R$ 75,80</span>
-                            <a href="https://wa.me/5548991463351?text=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20o%20item%20cód: 21." target="_blank" title="Fale conosco pelo WhatsApp">
-            			    <button class="text-[#9F7C38] hover:text-amber-800">
-               				 <i class="fas fa-shopping-cart"></i>
-            			    </button>
-       				         </a>
-    			        </div>
-		            </div>
-                </div>
-                </div>
-                
-                <div class="text-center mt-8">
-                    <!-- Botão para mostrar/ocultar produtos adicionais -->
-                    <button onclick="toggleProducts('prata')" class="inline-block border-2 border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">Ver Mais Destaques de Pratas</button>
-                </div>
-            </div>
-        </div>        
+            </div>     
+        </div>
     </section>
 
     <div id="imageModal" class="modal">
@@ -817,13 +1108,13 @@
     </div>
 
     <!-- Sobre -->
-    <section id="sobre" class="py-16 bg-[#EFE7DC]">
+    <section id="sobre" class="py-0 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
                     <img src="logo/nossahistoria.png" alt="Sobre a DivaLuz" class="rounded-lg shadow-lg w-full">
                 </div>
-                <div class="lg:w-2/3"> <!-- diminui o tamanho, original é lg:w-1/2 -->
+                <div class="lg:w-3/4"> <!-- diminui o tamanho, original é lg:w-1/2 -->
 
                     <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-6">Sobre a DivaLuz Semijoias</h2>
                     <p class="text-gray-600 mb-4">A DivaLuz Semijoias nasceu da paixão por acessórios que combinam qualidade, beleza e preço acessível. Acreditamos que toda mulher merece se sentir especial e radiante, sem precisar investir fortunas em joias tradicionais.</p>
@@ -851,85 +1142,12 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section class="py-16 bg-[#EFE7DC]">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="title-font text-3xl md:text-4xl font-bold text-[#9F7C38] mb-4">O que nossas clientes dizem</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">A satisfação de nossas clientes é nossa maior recompensa</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Depoimento 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
-                            <!-- <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Silva" class="w-full h-full object-cover"> -->
-                            <img src="fotocliente/paula.jpg" alt="cliente insta 1" class="w-full h-full object-cover">
-
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Paula</h4>
-                            <div class="flex text-[#9F7C38]">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Comprei um colar da DivaLuz e estou apaixonada! O brilho é incrível e já recebi vários elogios. A qualidade superou minhas expectativas."</p>
-                </div>
-                
-                <!-- Depoimento 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
-                            <img src="fotocliente/vic.jpg" alt="cliente insta 2" class="w-full h-full object-cover">
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Victoria</h4>
-                            <div class="flex text-[#9F7C38]">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Os brincos que comprei com Cheila são lindos e muito confortáveis. Não causaram alergias e o brilho continua perfeito."</p>
-                </div>
-                
-                <!-- Depoimento 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Carla Mendes" class="w-full h-full object-cover">  
-                            <!-- <img src="img/Fotocliente/carla.jpg" alt="cliente insta3" class="w-full h-full object-cover"> -->
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800">Fernanda</h4>
-                            <div class="flex text-[#9F7C38]">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Atendimento excelente e produtos de ótima qualidade. Comprei várias peças e todas chegaram perfeitas no RS, exatamente como nas fotos."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-   
+    </section>    
    
     <!-- Contato -->
+    <div class="container mx-auto px-4">          
+        <div class="border-t border-[#9F7C38] mt-24 pt-8 text-center text-gray-500"></div>
+    </div>
     <section id="contato" class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -1023,7 +1241,7 @@
     <section class="py-16 bg-[#9F7C38] text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
-            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+            <p class="text max-w-2xl mx-auto mb-8">Receba em primeira mão nossos lançamentos e o catálogo completo!</p>
             
             <div class="mt-8">
                 <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
@@ -1136,27 +1354,27 @@
     }
 
     // --- Mostrar/Ocultar Produtos (função global para manter compatibilidade com onclick inline)
-    window.toggleProducts = function(collection, btn) {
-      try {
-        const hiddenProducts = collection === 'banhos' ?
-          document.getElementById('hidden-products-banhos') :
-          document.getElementById('hidden-products-prata');
+    // window.toggleProducts = function(collection, btn) {
+    //   try {
+    //     const hiddenProducts = collection === 'banhos' ?
+    //       document.getElementById('hidden-products-banhos') :
+    //       document.getElementById('hidden-products-prata');
 
-        const button = btn || (window.event && window.event.currentTarget) || null;
-        if (!hiddenProducts) {
-          console.warn('toggleProducts: elemento não encontrado para', collection);
-          return;
-        }
+    //     const button = btn || (window.event && window.event.currentTarget) || null;
+    //     if (!hiddenProducts) {
+    //       console.warn('toggleProducts: elemento não encontrado para', collection);
+    //       return;
+    //     }
 
-        if (hiddenProducts.classList.contains('hidden')) {
-          hiddenProducts.classList.remove('hidden');
-          if (button) button.textContent = 'Ver Menos';
-        } else {
-          hiddenProducts.classList.add('hidden');
-          if (button) button.textContent = collection === 'banhos' ? 'Ver Mais Destaques de Banhos' : 'Ver Mais Destaques de Prata';
-        }
-      } catch (err) { console.error('toggleProducts error', err); }
-    };
+    //     if (hiddenProducts.classList.contains('hidden')) {
+    //       hiddenProducts.classList.remove('hidden');
+    //       if (button) button.textContent = 'Ver Menos';
+    //     } else {
+    //       hiddenProducts.classList.add('hidden');
+    //       if (button) button.textContent = collection === 'banhos' ? 'Ver Mais Destaques de Banhos' : 'Ver Mais Destaques de Prata';
+    //     }
+    //   } catch (err) { console.error('toggleProducts error', err); }
+    // };
 
     // --- Modal de Imagem (funções globais)
     let modal = null;
@@ -1223,26 +1441,26 @@
     });
 
     // --- Cards (abrir / fechar) com checagem de elementos
-    document.querySelectorAll('.card').forEach(card => {
-      const verMais = card.querySelector('.ver-mais');
-      const verMenos = card.querySelector('.ver-menos');
-      const conteudo = card.querySelector('.conteudo');
+    // document.querySelectorAll('.card').forEach(card => {
+    //   const verMais = card.querySelector('.ver-mais');
+    //   const verMenos = card.querySelector('.ver-menos');
+    //   const conteudo = card.querySelector('.conteudo');
 
-      if (verMais) {
-        verMais.addEventListener('click', () => {
-          if (!conteudo) return;
-          conteudo.style.maxHeight = conteudo.scrollHeight + "px";
-          conteudo.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      }
-      if (verMenos) {
-        verMenos.addEventListener('click', () => {
-          if (!conteudo) return;
-          conteudo.style.maxHeight = "0px";
-          verMais && verMais.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      }
-    });
+    //   if (verMais) {
+    //     verMais.addEventListener('click', () => {
+    //       if (!conteudo) return;
+    //       conteudo.style.maxHeight = conteudo.scrollHeight + "px";
+    //       conteudo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //     });
+    //   }
+    //   if (verMenos) {
+    //     verMenos.addEventListener('click', () => {
+    //       if (!conteudo) return;
+    //       conteudo.style.maxHeight = "0px";
+    //       verMais && verMais.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //     });
+    //   }
+    // });
 
     // --- Lista de clientes (CPF, senha e link)
     const clientes = [
@@ -1313,10 +1531,49 @@
     console.error('Erro geral no script do rodapé', globalErr);
   }
 });
+
+// Função para obter índices aleatórios diários
+function getDailyRandomIndices(total, qtd, seedExtra = 0) {
+    const today = new Date();
+    const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate() + seedExtra;
+    
+    function seededRandom(seed) {
+        var x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+    }
+
+    const indices = Array.from({ length: total }, (_, i) => i);
+    const chosen = [];
+
+    while (chosen.length < qtd && indices.length > 0) {
+        const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+        chosen.push(indices.splice(rand, 1)[0]);
+    }
+
+    return chosen;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    function atualizarColecao(containerId, qtd, seedExtra = 0) {
+        const container = document.querySelector(`#${containerId}`);
+        if (!container) return;
+
+        const produtos = container.querySelectorAll(".product-card");
+        const indices = getDailyRandomIndices(produtos.length, qtd, seedExtra);
+
+        // esconde todos
+        produtos.forEach(p => p.style.display = "none");
+
+        // mostra só os escolhidos do dia
+        indices.forEach(i => produtos[i].style.display = "block");
+    }
+
+    // Exemplo: 4 produtos por dia em cada coleção
+    atualizarColecao("ouro-container", 4, 1);
+    atualizarColecao("prata-container", 4, 2);
+});
+
 </script>
 
 </body>
-
 </html>
-
-

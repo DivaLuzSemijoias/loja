@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DivaLuz Prata - Coleção Pulseiras</title>
+    <title>DivaLuz Prata - Coleção pulseirasprata</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -218,7 +218,8 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
     <!-- Produtos -->
     <section class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
-            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-16 text-center">Prata 925</h2>
+            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-8 text-center">Prata 925</h2>
+            <p class="text-center text-[#9F7C38] mb-8 title-font text-xl md:text-2xl font-semibold">Confira novidades todos os dias!</p>
             <!-- Filtros de navegação -->
             <div class="flex flex-wrap justify-center gap-4 mb-8">
 		        <a href="index.html" class="border border-[#9F7C38] text-[#9F7C38] hover:bg-[#9F7C38] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition">Início</a>
@@ -233,7 +234,7 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
             <!-- Grid de Produtos - 4 colunas -->
             <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Pulseira -->
+                <!-- Pulseira 1-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="pulseirasprata/PL-FIGARO-ITALIANA-2.2-90-15980.avif"
@@ -261,7 +262,7 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
 		            </div>
                 </div>
 
-                <!-- Pulseira -->
+                <!-- Pulseira 2-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="pulseirasprata/PL-GRUMET-2.5-91-18980.avif"
@@ -289,7 +290,7 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
 		            </div>
                 </div>
 
-                <!-- Pulseira -->
+                <!-- Pulseira 3-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="pulseirasprata/PL-DAISY-FEMININA-PRATA925-63-8990.avif"
@@ -317,7 +318,7 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
 		            </div>
                 </div>
 
-                <!-- Pulseira -->
+                <!-- Pulseira 4-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/Em Breve Prata.png"
@@ -389,7 +390,7 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
     <section class="py-16 bg-[#9F7C38] text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
-            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+            <p class="text max-w-2xl mx-auto mb-8">Receba em primeira mão nossos lançamentos e o catálogo completo!</p>
         
             <div class="mt-8">
                 <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
@@ -581,9 +582,39 @@ url('./pulseirasprata/pulseirapratahero.png'); background-size: contain; backgro
     }
     });
 
+    // Função para selecionar 4 produtos aleatórios diferentes a cada dia       
+    function getDailyRandomIndices(total, qtd) {
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+        function seededRandom(seed) {
+            var x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+
+        const indices = Array.from({ length: total }, (_, i) => i);
+        const chosen = [];
+
+        while (chosen.length < qtd && indices.length > 0) {
+            const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+            chosen.push(indices.splice(rand, 1)[0]);
+        }
+
+        return chosen;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const products = document.querySelectorAll(".product-card");
+        const indices = getDailyRandomIndices(products.length, 4);
+
+        // esconde todos
+        products.forEach(p => p.style.display = "none");
+
+        // mostra só os escolhidos
+        indices.forEach(i => products[i].style.display = "block");
+    });
+
     </script>
 
 </body>
-
 </html>
-

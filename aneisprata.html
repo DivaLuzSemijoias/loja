@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DivaLuz Prata - Coleção Aneis</title>
+    <title>DivaLuz Prata - Coleção AneisPrata</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -219,7 +219,8 @@
     <!-- Produtos -->
     <section class="py-16 bg-[#EFE7DC]">
         <div class="container mx-auto px-4">
-            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-16 text-center">Prata 925</h2>
+            <h2 class="title-font text-4xl font-bold text-[#9F7C38] mb-8 text-center">Prata 925</h2>
+            <p class="text-center text-[#9F7C38] mb-8 title-font text-xl md:text-2xl font-semibold">Confira novidades todos os dias!</p>
             <!-- Filtros de navegação -->
             <div class="flex flex-wrap justify-center gap-4 mb-8">
 
@@ -235,6 +236,7 @@
             <!-- Grid de Produtos - 4 colunas -->
             <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
+                <!-- Anel 1-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="aneisprata/AN-LA-VIE-PRATA-N17-FOL-AG-121-2990-2.avif"
@@ -262,6 +264,7 @@
 		            </div>
                 </div>
 
+                <!-- Anel 2-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="aneisprata/AN-DUPLO-ELEGANCE-N20-FOL-AG-122-2990-2.avif"
@@ -289,7 +292,7 @@
 		            </div>
                 </div>
 
-                <!-- Anel -->
+                <!-- Anel 3-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="aneisprata/AN-CORACAO-ABAULADO-N16-52-6800.avif"
@@ -317,7 +320,7 @@
 		            </div>
                 </div>
 
-                <!-- Anel -->
+                <!-- Anel 4-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="aneisprata/AN-MEIA-ALIANCA-SLIM-ZIRCONIA-N18-92-7580.avif"
@@ -345,7 +348,7 @@
 		            </div>
                 </div>
 
-                <!-- Anel -->
+                <!-- Anel 5-->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/Em Breve Prata.png"
@@ -373,8 +376,8 @@
 		            </div>
                 </div>
 
-                <!-- Anel -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                <!-- Anel 6-->
+                <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/Em Breve Prata.png"
                              alt="Meia aliança Slim Zircônia Nº18"
@@ -399,10 +402,10 @@
        				         </a>
     			        </div>
 		            </div>
-                </div>
+                </div> -->
 
-                <!-- Anel -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                <!-- Anel 7-->
+                <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/Em Breve Prata.png"
                              alt="Meia aliança Slim Zircônia Nº18"
@@ -427,10 +430,10 @@
        				         </a>
     			        </div>
 		            </div>
-                </div>
+                </div> -->
 
-                <!-- Anel -->
-                <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
+                <!-- Anel 8-->
+                <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
                         <img src="logo/Em Breve Prata.png"
                              alt="Meia aliança Slim Zircônia Nº18"
@@ -455,7 +458,7 @@
        				         </a>
     			        </div>
 		            </div>
-                </div>
+                </div> -->
 
                 <!-- SEM ÍTEM -->               
                 <!-- <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
@@ -502,7 +505,7 @@
     <section class="py-16 bg-[#9F7C38] text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">Entre para o Nosso Grupo VIP</h2>
-            <p class="text-amber-100 max-w-2xl mx-auto mb-8">Seja a primeira a saber dos lançamentos, receba ofertas exclusivas diretamente no seu WhatsApp!</p>
+            <p class="text max-w-2xl mx-auto mb-8">Receba em primeira mão nossos lançamentos e o catálogo completo!</p>
         
             <div class="mt-8">
                 <!-- ATENÇÃO: Substitua '#' pelo link do seu grupo de WhatsApp -->
@@ -693,10 +696,40 @@
       grid.appendChild(card);
     }
     });
+        
+    // Função para selecionar 4 produtos aleatórios diferentes por dia
+    function getDailyRandomIndices(total, qtd) {
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+        function seededRandom(seed) {
+            var x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+
+        const indices = Array.from({ length: total }, (_, i) => i);
+        const chosen = [];
+
+        while (chosen.length < qtd && indices.length > 0) {
+            const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+            chosen.push(indices.splice(rand, 1)[0]);
+        }
+
+        return chosen;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const products = document.querySelectorAll(".product-card");
+        const indices = getDailyRandomIndices(products.length, 4);
+
+        // esconde todos
+        products.forEach(p => p.style.display = "none");
+
+        // mostra só os escolhidos
+        indices.forEach(i => products[i].style.display = "block");
+    });
 
     </script>
 
 </body>
 </html>
-
-
