@@ -465,12 +465,12 @@
                 <!-- Colar 9 -->
                 <div class="card product-card bg-white rounded-lg overflow-hidden shadow-md">
                     <div class="relative overflow-hidden group">
-                        <img src="colar/CL CORAÇÃO VAZADO ORGÂNICO 4 6980.avif"
+                        <img src="colar/cl-coracao-vazado-organico-4-6980-2.avif"
                              alt="Colar Coração Vazado Orgânico" 
                              loading="lazy"
                              class="w-full h-64 object-cover cursor-pointer" 
                              onclick="openModal(this)"
-                             data-images="colar/CL CORAÇÃO VAZADO ORGÂNICO 4 6980.avif,logo/em breve.png"
+                             data-images="colar/cl-coracao-vazado-organico-4-6980-2.avif,colar/CL CORAÇÃO VAZADO ORGÂNICO 4 6980.avif,logo/em breve.png"
                              data-current-index="0"> <span class="card-arrow left-0" onclick="changeProductImage(event, -1)">&#10094;</span>
                             <span class="card-arrow right-0" onclick="changeProductImage(event, 1)">&#10095;</span>
                             <div class="status-badge absolute top-2 right-2 bg-[#9F7C38] text-white text-xs font-bold px-2 py-1 rounded">DISPONÍVEL</div>
@@ -1121,6 +1121,8 @@
         // Guarda o novo índice no atributo para o próximo clique
         imgElement.setAttribute('data-current-index', currentIndex);
     }
+    
+    // Código para escurecer e colocar badge vermelha em produtos esgotados
     document.querySelectorAll(".status-badge").forEach(badge => {
     if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
       badge.parentElement.querySelector("img").style.opacity = "0.5"; // escurece a imagem
@@ -1130,41 +1132,80 @@
     }
     });
     
-    document.querySelectorAll(".status-badge").forEach(badge => {
-    let card = badge.closest(".card");
-    let grid = document.getElementById("produtos");
+    // Código para mover produtos esgotados para o final da lista
+    // document.querySelectorAll(".status-badge").forEach(badge => {
+    // let card = badge.closest(".card");
+    // let grid = document.getElementById("produtos");
 
-    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
-      let img = card.querySelector("img");
-      img.style.opacity = "0.5";
-      img.style.filter = "grayscale(50%)";
+    // if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+    //   let img = card.querySelector("img");
+    //   img.style.opacity = "0.5";
+    //   img.style.filter = "grayscale(50%)";
 
-      badge.classList.remove("bg-yellow-600", "bg-green-600");
-      badge.classList.add("bg-red-600");
+    //   badge.classList.remove("bg-yellow-600", "bg-green-600");
+    //   badge.classList.add("bg-red-600");
 
-      grid.appendChild(card);
-    }
-    });
+    //   grid.appendChild(card);
+    // }
+    // });
          
     // Função para selecionar 4 produtos aleatórios por dia
+    
+    // function getDailyRandomIndices(total, qtd) {
+    //     const today = new Date();
+    //     const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+    //     function seededRandom(seed) {
+    //         var x = Math.sin(seed++) * 10000;
+    //         return x - Math.floor(x);
+    //     }
+
+    //     const indices = Array.from({ length: total }, (_, i) => i);
+    //     const chosen = [];
+
+    //     while (chosen.length < qtd && indices.length > 0) {
+    //         const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+    //         chosen.push(indices.splice(rand, 1)[0]);
+    //     }
+
+    //     return chosen;
+    // }
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const products = document.querySelectorAll(".product-card");
+    //     const indices = getDailyRandomIndices(products.length, 4);
+
+    //     // esconde todos
+    //     products.forEach(p => p.style.display = "none");
+
+    //     // mostra só os escolhidos
+    //     indices.forEach(i => products[i].style.display = "block");
+    // });
+    
+
+    // Versão melhorada da função para selecionar 4 produtos aleatórios por dia
+    function seededRandom(seed) {
+        var x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
+    }
+
+    function shuffleWithSeed(array, seed) {
+        let result = array.slice();
+        for (let i = result.length - 1; i > 0; i--) {
+            const j = Math.floor(seededRandom(seed + i) * (i + 1));
+            [result[i], result[j]] = [result[j], result[i]];
+        }
+        return result;
+    }
+
     function getDailyRandomIndices(total, qtd) {
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        
-        function seededRandom(seed) {
-            var x = Math.sin(seed++) * 10000;
-            return x - Math.floor(x);
-        }
 
         const indices = Array.from({ length: total }, (_, i) => i);
-        const chosen = [];
+        const shuffled = shuffleWithSeed(indices, seed);
 
-        while (chosen.length < qtd && indices.length > 0) {
-            const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
-            chosen.push(indices.splice(rand, 1)[0]);
-        }
-
-        return chosen;
+        return shuffled.slice(0, qtd);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -1178,8 +1219,7 @@
         indices.forEach(i => products[i].style.display = "block");
     });
 
+
     </script>
 </body>
-
 </html>
-

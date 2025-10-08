@@ -566,46 +566,84 @@ url('./conjuntosprata/conjuntospratahero.png'); background-size: contain; backgr
     }
     });
     
-    document.querySelectorAll(".status-badge").forEach(badge => {
-    let card = badge.closest(".card");
-    let grid = document.getElementById("produtos");
+    // Move os produtos esgotados para o final da lista
+    // document.querySelectorAll(".status-badge").forEach(badge => {
+    // let card = badge.closest(".card");
+    // let grid = document.getElementById("produtos");
 
-    if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
-      let img = card.querySelector("img");
-      img.style.opacity = "0.5";
-      img.style.filter = "grayscale(50%)";
+    // if (badge.textContent.trim().toUpperCase() === "ESGOTADO") {
+    //   let img = card.querySelector("img");
+    //   img.style.opacity = "0.5";
+    //   img.style.filter = "grayscale(50%)";
 
-      badge.classList.remove("bg-yellow-600", "bg-green-600");
-      badge.classList.add("bg-red-600");
+    //   badge.classList.remove("bg-yellow-600", "bg-green-600");
+    //   badge.classList.add("bg-red-600");
 
-      grid.appendChild(card);
+    //   grid.appendChild(card);
+    // }
+    // });
+
+    // // Função para selecionar 4 produtos aleatórios diferentes a cada dia       
+    // function getDailyRandomIndices(total, qtd) {
+    //     const today = new Date();
+    //     const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        
+    //     function seededRandom(seed) {
+    //         var x = Math.sin(seed++) * 10000;
+    //         return x - Math.floor(x);
+    //     }
+
+    //     const indices = Array.from({ length: total }, (_, i) => i);
+    //     const chosen = [];
+
+    //     while (chosen.length < qtd && indices.length > 0) {
+    //         const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
+    //         chosen.push(indices.splice(rand, 1)[0]);
+    //     }
+
+    //     return chosen;
+    // }
+
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const products = document.querySelectorAll(".product-card");
+    //     const indices = getDailyRandomIndices(products.length, 4);
+
+    //     // esconde todos
+    //     products.forEach(p => p.style.display = "none");
+
+    //     // mostra só os escolhidos
+    //     indices.forEach(i => products[i].style.display = "block");
+    // });
+
+
+    // Versão melhorada da função para selecionar 4 produtos aleatórios diferentes por dia
+    function seededRandom(seed) {
+        var x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
     }
-    });
 
-    // Função para selecionar 4 produtos aleatórios diferentes a cada dia       
+    function shuffleWithSeed(array, seed) {
+        let result = array.slice();
+        for (let i = result.length - 1; i > 0; i--) {
+            const j = Math.floor(seededRandom(seed + i) * (i + 1));
+            [result[i], result[j]] = [result[j], result[i]];
+        }
+        return result;
+    }
+
     function getDailyRandomIndices(total, qtd) {
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        
-        function seededRandom(seed) {
-            var x = Math.sin(seed++) * 10000;
-            return x - Math.floor(x);
-        }
 
         const indices = Array.from({ length: total }, (_, i) => i);
-        const chosen = [];
+        const shuffled = shuffleWithSeed(indices, seed);
 
-        while (chosen.length < qtd && indices.length > 0) {
-            const rand = Math.floor(seededRandom(seed + chosen.length) * indices.length);
-            chosen.push(indices.splice(rand, 1)[0]);
-        }
-
-        return chosen;
+        return shuffled.slice(0, qtd);
     }
 
     document.addEventListener("DOMContentLoaded", () => {
         const products = document.querySelectorAll(".product-card");
-        const indices = getDailyRandomIndices(products.length, 4);
+        const indices = getDailyRandomIndices(products.length, 8);
 
         // esconde todos
         products.forEach(p => p.style.display = "none");
